@@ -1,0 +1,10 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "_common.scss";
+@import "_ley.scss";
+@import "_normativa.scss";
+@import "_consultas.scss";
+@import "_landing.scss";
