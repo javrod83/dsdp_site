@@ -19,21 +19,13 @@ angular
   ])
   .config(function ($stateProvider, $urlRouterProvider)  {
 
-    $urlRouterProvider.otherwise('/land');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('land', {
-      url: '/land',
+      url: '/',
       templateUrl: 'views/landing.html',
       controller: 'LandingCtrl'
-    });
-
-
-  });
-
-
-
-/*
-.state('ley', {
+    }).state('ley', {
       url: '/ley',
       templateUrl: 'views/ley.html',
       controller: 'LeyCtrl'
@@ -45,5 +37,11 @@ angular
       url: '/normatica',
       templateUrl: 'views/normativa.html',
       controller: 'NormativaCtrl'
-    })
-*/
+    });
+
+
+  });
+
+
+
+
