@@ -1,13 +1,16 @@
+@import "compass/css3";
+@import "compass/utilities";
+
 .header{}
 
 #footer{
+	background:blue;
 	border:1px solid blue;
 	.link-senado{
 		background: url('../images/honorable-senado-nacion.png');
 		width: 172px;
 		height: 72px;
 		display:block;
-		float:left;
 	}
 	
 	.link-diputados{
@@ -15,6 +18,6 @@
 		width: 260px;
 		height: 72px;
 		display:block;
-		float:right;
+		
 	}
 }
