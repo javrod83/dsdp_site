@@ -2,22 +2,3 @@
 @import "compass/utilities";
 
 .header{}
-
-#footer{
-	background:blue;
-	border:1px solid blue;
-	.link-senado{
-		background: url('../images/honorable-senado-nacion.png');
-		width: 172px;
-		height: 72px;
-		display:block;
-	}
-	
-	.link-diputados{
-		background: url('../images/honorable-camara-diputados.png');
-		width: 260px;
-		height: 72px;
-		display:block;
-		
-	}
-}
