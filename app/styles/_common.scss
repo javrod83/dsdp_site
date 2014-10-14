@@ -10,8 +10,8 @@
 $color-main-blue: 			rgba(73,171,222,1);
 $color-dark-blue: 			rgba(59,139,181,1);
 $color-light-blue: 			rgba(79,202,248,1);
-$color-soft-gray:			#bbb;
-$color-light-gray:			#ddd;
+$color-soft-gray:			#ddd;
+$color-light-gray:			#bbb;
 $color-gray:				#999;
 $color-main-gray:			#777;
 $color-medium-gray:			#555;
@@ -42,6 +42,12 @@ body
 	font-size: $font-size-base;
 	font-weight: 400;
 }
+footer
+{
+	background-color: $color-soft-gray;
+	margin: 30px 0 0 0;
+	padding: 20px 10px;
+}
 
 /* id */
 
@@ -56,6 +62,18 @@ body
 
 /* clases */
 
+.align-center
+{
+	text-align: center;
+}
+.align-left
+{
+	text-align: left;
+}
+.align-right
+{
+	text-align: right;
+}
 .caret
 {
 	margin: 0 0 0 8px;
