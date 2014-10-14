@@ -10,7 +10,7 @@
 angular.module('digestoApp')
   .controller('LandingCtrl',['$scope' ,function ($scope) {
 
-  		console.log('est no esta funcionando ');
+  		console.log('Landing controller');
   		$scope.variable = 'value';
   }]);
 

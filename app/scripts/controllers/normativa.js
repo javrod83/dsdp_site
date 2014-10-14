@@ -8,7 +8,7 @@
  * Controller of the digestoApp
  */
 angular.module('digestoApp')
-  .controller('NormativactrlCtrl', function ($scope) {
+  .controller('NormativaCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

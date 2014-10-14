@@ -29,12 +29,12 @@ angular
       url: '/ley',
       templateUrl: 'views/ley.html',
       controller: 'LeyCtrl'
-    }).state('consulta', {
-      url: '/consulta',
-      templateUrl: 'views/consulta.html',
-      controller: 'ConsultaCtrl'
+    }).state('consultas', {
+      url: '/consultas',
+      templateUrl: 'views/consultas.html',
+      controller: 'ConsultasCtrl'
     }).state('normativa', {
-      url: '/normatica',
+      url: '/normativa',
       templateUrl: 'views/normativa.html',
       controller: 'NormativaCtrl'
     });
