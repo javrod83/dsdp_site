@@ -8,10 +8,9 @@
  * Controller of the digestoApp
  */
 angular.module('digestoApp')
-  .controller('ConsultasctrlCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ConsultasCtrl', function ($scope) {
+
+  	
+  		console.log('ConsultasCtrl ');
+  		$scope.variable = 'value';
   });

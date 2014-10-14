@@ -8,10 +8,8 @@
  * Controller of the digestoApp
  */
 angular.module('digestoApp')
-  .controller('LeyctrlCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LeyCtrl', function ($scope) {
+
+  		console.log('LeyCtrl ');
+  		$scope.variable = 'value';
   });

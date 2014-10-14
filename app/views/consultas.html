@@ -1,1 +1,136 @@
-<p>This is the consultas view.</p>
+<div class="container">
+   <h2>Formulario de consultas</h2>
+   <form role="form" id="musiciansForm" data-validate="parsley" style="float: left; margin: 10px 0 10px 0; width: 100%;">
+      <input type="hidden" id="type" name="type" value="m">
+      <div class="row">
+         <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+               <label for="first_name">Nombre y apellido</label>
+               <input class="form-control" type="text" id="first_name" name="first_name" data-required="true">
+            </div>
+         </div>
+         <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+              <label for="email">Email</label>
+               <input class="form-control" type="text" id="email" name="email">
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+              <label for="cellphone">Telefono celular</label>
+              <input class="form-control"  type="text" id="cellphone" name="cellphone" data-type="phone" class="parsley-validated"> 
+            </div>
+         </div>
+
+         <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+               <label for="dni">DNI</label>
+               <input class="form-control" type="text" id="dni" name="dni" data-required="true">      
+            </div>
+         </div>
+      </div>
+
+       <hr>
+
+      <div class="row">
+         <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+                <label for="sector">Sector </label>
+                <select>
+                  <option value="option1">option 1</option>
+                  <option value="option2">option 2</option>
+                  <option value="option3">option 3</3option>
+                  <option value="option4">option 4</option>
+                </select>
+	         </div>
+         </div>
+
+      </div>
+
+      <div ng-show="sectorPublico.showImputs">
+         <div class="row">
+            <div class="col-md-6 col-sm-6">
+               <div class="form-group">
+                  <label for="organismo">Organismo al que pertenece</label>
+                  <input class="form-control" type="text" id="organismo" name="organismo">     
+               </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+               <div class="form-group">
+                 <label for="cargo">Cargo</label>
+                 <input class="form-control"  type="text" id="cargo" name="cargo"> 
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+         <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+               <label for="consultation">Norma a consultar</label><br/>
+               <input class="form-control" type="text" id="consultation" name="consultation" placeholder="Ej: ACU-0191" class="parsley-validated">
+            </div>
+         </div>
+         <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+               <label for="cv">Adjuntar archivo</label>
+               <input class="form-control btn-warning" type="file" id="cv" name="cv">  
+               <div ng-show="fileError.show">
+                  <ul class="parsley-error-list" >
+                     <li class="required" style="display: list-item;">{{fileError.msg}}</li>
+                  </ul>                  
+               </div>
+
+
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-md-12">
+            <div class="form-group">
+               <span id="actividaderror"></span>
+               <label for="extra">Mensaje</label>
+               <textarea id="extra" name="extra" class="form-control" style="resize: vertical;" row="6" data-required="true"></textarea>
+            </div>
+         </div>
+      </div>
+
+
+      <div ng-show="requestError">
+         <div class="alert alert-error">
+            <p>Ocurrio un error al enviar el formulario, intentelo nuevamente.</p>
+         </div>
+      </div>
+
+         
+
+      <div class="row">
+         <div class="col-md-12">
+            <input class="btn btn-primary pull-right cbp-mc-submit" type="submit" value="Enviar" {{action submit target="view"}}data-loading-text="Enviando..." />
+         </div>
+      </div>
+   </form>
+
+   <div id="thenks" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+      <div class="modal-dialog modal-sm">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" {{action closeThenks target="view"}} aria-hidden="true">×</button>
+               <h3 id="myModalLabel"></h3>
+            </div>
+            <div class="modal-body">
+               <p>Gracias por ponerse en contacto.</p>
+            </div>
+            <div class="modal-footer">
+               <button class="btn btn-primary" {{action closeThenks target="view"}} aria-hidden="true">Cerrar</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
