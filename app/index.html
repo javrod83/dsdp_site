@@ -20,37 +20,58 @@
    <![endif]-->
 
    <!-- Add your site or application content here -->
-      <div class="container container-fluid">
-         <nav class="navbar navbar-default" role="navigation">
-            <ul class="nav nav-pills pull-right">
-               <li >
-                  <a ui-sref="#/">Digesto</a>
-               </li>
-               <li >
-                  <a ui-sref="#/ley">Ley</a>
-               </li>
-               <li >
-                  <a ui-sref="#/consultas">Consultas</a>
-               </li>
-               <li >
-                  <a ui-sref="#/Normativa">Normativa</a>
-               </li>
-            </ul>
+   <div>
+      <header>
+         <nav id="nav-border" class="navbar navbar-default" role="navigation">
+            <div class="container container-fluid">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" ui-sref="#/">Digesto Jurídico Argentino</a>
+               </div><!--/.navbar-header-->
+               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li>
+                        <a ui-sref="#/ley">Ley 26.939</a>
+                     </li>
+                     <li>
+                        <a ui-sref="#/consultas">Consultar</a>
+                     </li>
+                     <li class="dropdown">
+                        <a ui-sref="#/normativa" class="dropdown-toggle" data-toggle="dropdown">Buscar normas<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                           <li>
+                              <a iu-sref="#" id="icon-leg-vigente">Legislación vigente</a>
+                           </li>
+                           <li>
+                              <a ui-sref="#" id="icon-leg-no-vigente">Legislación no vigente</a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div><!--/.navbar-collapse-->
+            </div><!--/.container-fluid-->
          </nav>
-         <div ui-view=""></div>
-         <footer id="footer">
-            <div class="container">
-               <div class="row col-md-12">
-                  <span class="col-md-5 col-xs-5">
-                     <a href="http://www.senado.gov.ar/" target="_blank"></a>
-                  </span>
-                  <span class="col-md-5 col-xs-5">
-                     <a  href="http://www.diputados.gov.ar/" target="_blank"></a>
-                  </span>  
-               </div>
+      </header>
+      <div ui-view=""></div>
+      <footer id="footer">
+         <div class="container">
+            <div class="row col-md-12">
+               <span class="col-md-5 col-xs-5">
+                  <a href="http://www.senado.gov.ar/" target="_blank"></a>
+               </span>
+               <span class="col-md-5 col-xs-5">
+                  <a  href="http://www.diputados.gov.ar/" target="_blank"></a>
+               </span>  
             </div>
-         </footer>
-      </div>
+         </div>
+      </footer>
+
+   </div>
 
 
    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
@@ -96,6 +117,7 @@
    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
    <script src="bower_components/angular-animate/angular-animate.js"></script>
    <script src="bower_components/angular-touch/angular-touch.js"></script>
+   <script src="bower_components/angular-route/angular-route.js"></script>
    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
    <!-- endbower -->
    <!-- endbuild -->
