@@ -1,85 +1,88 @@
 <div id="jumbo-landing"  class="jumbotron">
     <section class="container">
-        <div>
+        <div class="col-md-10 col-md-offset-1">
             <div class="col-md-4">
-                <form role="form">
-                    <div class="form-group">
-                        <label for="norma-nro-codigo">N° / Código de Norma</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Categoría</label>
-                        <select class="form-control">
-                            <option>ADM – Administrativo;</option>
-                            <option>ACU – Cultura, Ciencia y Tecnología;</option>
-                            <option>AED – Educación;</option>
-                            <option>ASA – Salud Pública;</option>
-                            <option>ASE – Seguridad;</option>
-                            <option>ASO – Acción y Desarrollo Social;</option>
-                            <option>B – Aduanero;</option>
-                            <option>C – Aeronáutico-Espacial;</option>
-                            <option>D – Bancario, Monetario y Financiero;</option>
-                            <option>E – Civil;</option>
-                            <option>F – Comercial;</option>
-                            <option>G – Comunitario;</option>
-                            <option>H – Constitucional;</option>
-                            <option>I – De la Comunicación;</option>
-                            <option>J – Diplomático y Consular;</option>
-                            <option>K – Económico;</option>
-                            <option>L – Impositivo;</option>
-                            <option>M – Industrial;</option>
-                            <option>N – Internacional Privado;</option>
-                            <option>O – Internacional Público;</option>
-                            <option>P – Laboral;</option>
-                            <option>Q – Medio Ambiente;</option>
-                            <option>R – Militar;</option>
-                            <option>S – Penal;</option>
-                            <option>T – Político;</option>
-                            <option>U – Procesal Civil y Comercial;</option>
-                            <option>V – Procesal Penal;</option>
-                            <option>W – Público Provincial y Municipal;</option>
-                            <option>X – Recursos Naturales;</option>
-                            <option>Y – Seguridad Social;</option>
-                            <option>Z – Transporte y Seguros.</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">Fecha de sanción</label>
-                        <div>
-                            <div class="col-md-6">
-                                <select class="form-control">
-                                <option>2014</option>
-                                <option>2013</option>
-                                <option>2012</option>
-                                <option>2011</option>
-                                <option>2010</option>
-                                <option>2009</option>
-                                <option>2008</option>
-                                <option>2007</option>
-                                <option>2006</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <select class="form-control">
-                                    <option>2014</option>
-                                    <option>2013</option>
-                                    <option>2012</option>
-                                    <option>2011</option>
-                                    <option>2010</option>
-                                    <option>2009</option>
-                                    <option>2008</option>
-                                    <option>2007</option>
-                                    <option>2006</option>
-                                </select>
+                <form role="form" id="landing-form-search" class="col-md-12 form-base">
+                    <fieldset>
+                        <legend>Buscar normas</legend>
+                        <div class="form-group">
+                            <label for="norma-nro-codigo">N° / Código de Norma</label>
+                            <input type="text" class="form-control" id="norma-nro-codigo" placeholder="Código de Norma">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Categoría</label>
+                            <select class="form-control">
+                                <option>ADM – Administrativo</option>
+                                <option>ACU – Cultura, Ciencia y Tecnología</option>
+                                <option>AED – Educación</option>
+                                <option>ASA – Salud Pública</option>
+                                <option>ASE – Seguridad</option>
+                                <option>ASO – Acción y Desarrollo Social</option>
+                                <option>B – Aduanero</option>
+                                <option>C – Aeronáutico-Espacial</option>
+                                <option>D – Bancario, Monetario y Financiero</option>
+                                <option>E – Civil</option>
+                                <option>F – Comercial</option>
+                                <option>G – Comunitario</option>
+                                <option>H – Constitucional</option>
+                                <option>I – De la Comunicación</option>
+                                <option>J – Diplomático y Consular</option>
+                                <option>K – Económico</option>
+                                <option>L – Impositivo</option>
+                                <option>M – Industrial</option>
+                                <option>N – Internacional Privado</option>
+                                <option>O – Internacional Público</option>
+                                <option>P – Laboral</option>
+                                <option>Q – Medio Ambiente</option>
+                                <option>R – Militar</option>
+                                <option>S – Penal</option>
+                                <option>T – Político</option>
+                                <option>U – Procesal Civil y Comercial</option>
+                                <option>V – Procesal Penal</option>
+                                <option>W – Público Provincial y Municipal</option>
+                                <option>X – Recursos Naturales</option>
+                                <option>Y – Seguridad Social</option>
+                                <option>Z – Transporte y Seguros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Fecha de sanción</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                        <option>2014</option>
+                                        <option>2013</option>
+                                        <option>2012</option>
+                                        <option>2011</option>
+                                        <option>2010</option>
+                                        <option>2009</option>
+                                        <option>2008</option>
+                                        <option>2007</option>
+                                        <option>2006</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                        <option>2014</option>
+                                        <option>2013</option>
+                                        <option>2012</option>
+                                        <option>2011</option>
+                                        <option>2010</option>
+                                        <option>2009</option>
+                                        <option>2008</option>
+                                        <option>2007</option>
+                                        <option>2006</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-warning col-md-12">Buscar normas</button>
+                        <button type="submit" class="btn btn-warning col-md-12">Buscar normas</button>
+                    </fieldset>
                 </form>
             </div>
-            <div class="col-md-8">
+            <div id ="jumbo-info" class="col-md-8">
                 <h1>Digesto Jurídico Argentino</h1>
-                <p>El Digesto Jurídico Argentino, regula el ordenamiento de las leyes nacionales de carácter general vigente mediante el procedimiento de consolidación normativa, conteniendo además el listado de leyes de carácter general no vigentes y las referencias a las normas aprobadas por organismos supraestatales o intergubernamentales que la Nación integra. A partir de su promulgación, se inicia un período de ciento ochenta días para consultas y observaciones sobre su contenido con el objeto de perfeccionar su versión definitiva.</p>
+                <p>El Digesto Jurídico Argentino, regula el ordenamiento de las leyes nacionales de carácter general vigente mediante el procedimiento de consolidación normativa, conteniendo además el listado de leyes de carácter general no vigentes y las referencias a las normas aprobadas por organismos supraestatales o intergubernamentales que la Nación integra. </p>
             </div>
         </div>
     </section><!--/.container-->

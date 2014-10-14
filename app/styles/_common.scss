@@ -5,16 +5,30 @@
 
 /* variables */
 
+// Colores
+
 $color-main-blue: 			rgba(73,171,222,1);
 $color-dark-blue: 			rgba(59,139,181,1);
 $color-light-blue: 			rgba(79,202,248,1);
+$color-soft-gray:			#bbb;
+$color-light-gray:			#ddd;
+$color-gray:				#999;
+$color-main-gray:			#777;
+$color-medium-gray:			#555;
+$color-dark-gray:			#333;
 $color-light-white:			rgba(255,255,255,0.3);
+
+// Nav
+
 $navbar-height: 			64px;
+
+// Fuentes
+
 $font-family-primary: 		'Open Sans', sans-serif;
 $font-family-secondary: 	'Lora', serif;
 $font-size-xlarge:			$font-size-base * 2; 				// 32px
 $font-size-large:			$font-size-base * 1.5; 				// 24px
-$font-size-medium:			$font-size-base * 1.125; 				// 20px
+$font-size-medium:			$font-size-base * 1.25;				// 20px
 $font-size-base: 			16px;								// 16px
 $font-size-small:			$font-size-base * 0.8125; 			// 13px
 $font-size-xsmall:			$font-size-base * 0.6875; 			// 11px
@@ -38,31 +52,6 @@ body
 #icon-leg-no-vigente
 {
 	background: url('../images/icon_01.png') no-repeat 16px 14px;
-}
-#jumbo-landing
-{
-	background: url('../images/login-sparl-01-1024x488.jpg') no-repeat 100%;
-	background-size: cover;
-	width: 100%;
-
-	.container
-	{
-		h1
-		{
-			color: white;
-			font-size: $font-size-xlarge;
-			font-weight: 800;
-			margin: 30px 0;
-		}
-		p
-		{
-			color: white;
-			font-family: $font-family-secondary;
-			font-size: $font-size-base;
-			margin: 15px 0;
-			text-shadow: $text-shadow-image;
-		}
-	}
 }
 
 /* clases */
