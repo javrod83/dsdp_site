@@ -37,6 +37,11 @@
 	border: 1px solid $color-light-gray;
 	border-radius: $border-radius-base;
 	padding: 15px;
+
+	label
+		{
+			font-size: $font-size-small;
+		}
 }
 
 /* clases */
