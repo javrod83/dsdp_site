@@ -1,6 +1,7 @@
 @import "compass/css3";
 @import "compass/utilities";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,300italic,600italic,400,300,600,800);
+//@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,600,800);
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 
 /* variables */
@@ -12,9 +13,8 @@ $color-dark-blue: 			rgba(59,139,181,1);
 $color-light-blue: 			rgba(79,202,248,1);
 $color-soft-gray:			#ddd;
 $color-light-gray:			#bbb;
-$color-gray:				#999;
-$color-main-gray:			#777;
-$color-medium-gray:			#555;
+$color-gray:				#888;
+$color-main-gray:			#555;
 $color-dark-gray:			#333;
 $color-light-white:			rgba(255,255,255,0.3);
 
@@ -26,18 +26,20 @@ $navbar-height: 			64px;
 
 $font-family-primary: 		'Open Sans', sans-serif;
 $font-family-secondary: 	'Lora', serif;
-$font-size-xlarge:			$font-size-base * 2; 				// 32px
-$font-size-large:			$font-size-base * 1.5; 				// 24px
-$font-size-medium:			$font-size-base * 1.25;				// 20px
-$font-size-base: 			16px;								// 16px
-$font-size-small:			$font-size-base * 0.875; 			// 14px
-$font-size-xsmall:			$font-size-base * 0.6875; 			// 11px
+$font-size-xxlarge:			$font-size-base * 2.67;				// 40px
+$font-size-xlarge:			$font-size-base * 2; 				// 30px
+$font-size-large:			$font-size-base * 1.6; 				// 24px
+$font-size-medium:			$font-size-base * 1.33;				// 20px
+$font-size-base: 			15px;								// 15px
+$font-size-small:			$font-size-base * 0.87; 			// 13px
+$font-size-xsmall:			$font-size-base * 0.73; 			// 11px
 $text-shadow-image: 		0 2px 10px rgba(0, 0, 0, 0.1);
 
 /* etiquetas */
 
 body
 {
+	color: $color-dark-gray;
 	font-family: $font-family-primary;
 	font-size: $font-size-base;
 	font-weight: 400;
@@ -59,6 +61,10 @@ footer
 {
 	background: url('../images/icon_01.png') no-repeat 16px 14px;
 }
+#landing-content
+{
+	margin-bottom: 30px;
+}
 
 /* clases */
 
@@ -76,16 +82,35 @@ footer
 }
 .article-description
 {
-	margin-top: 30px;
+	margin-top: 15px;
+	margin-bottom: 20px;
 }
 .caret
 {
 	margin: 0 0 0 8px;
 }
+.form-base
+{
+	fieldset
+	{
+		legend
+		{
+			border: none;
+			font-size: $font-size-medium;
+			font-weight: 600;
+			margin: 0 0 10px 0;
+		}
+		label
+		{
+			font-size: $font-size-small;
+			font-weight: 400;
+		}
+	}
+}
 .navbar
 {
 	border: 0;
-	font-size: $font-size-small;
+	font-size: $font-size-base;
 	margin: 0;
 }
 .navbar-collapse
@@ -185,17 +210,18 @@ footer
 }
 .text-p
 {
+	color: $color-main-gray;
 	font-family: $font-family-secondary;
 	font-size: $font-size-base !important;
-	margin: 15px 0;
+	margin: 20px 0;
 }
 .title-primary
 {
-	font-size: $font-size-xlarge !important;
-	font-weight: 800;
+	font-size: $font-size-xxlarge !important;
+	font-weight: 600;
 }
 .title-secondary
 {
-	font-size: $font-size-large;
-	font-weight: 600;
+	font-size: $font-size-xlarge;
+	font-weight: 300;
 }
