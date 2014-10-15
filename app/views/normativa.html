@@ -1,1 +1,169 @@
-<p>This is the normativa view.</p>
+<section id="page">
+    <div class="container">
+       
+        <div class="site-content col-md-12">
+            <input class="input-search-indice wow fadeInUp deletable" type="text" name="search" autofocus="autofocus" placeholder="Buscar normas sobre..." />
+
+            
+            <ul id="accordion" >
+
+            </ul>
+            <ul id="normas" >
+
+            </ul>  
+            <ul id="resultados" >
+
+            </ul>                         
+        </div>
+        <script>
+           
+                    
+             $("#normas").html(' <img class="loader" src="../wp-content/themes/digesto/assets/images/loader.gif" alt="">');   
+             $( document ).ready(
+                //http://dsdp.hcdn.gob.ar/digesto/json.txt
+                //http://sparl-desa.hcdn.gob.ar:8080/exist/rest/digesto/index-json.xql
+                                
+
+                $.getJSON( url[state], function( data ) {
+                    var ramas = data.indiceDJA.Rama;
+
+
+                  
+                    lastChild = null;
+                    
+                    indice = [];
+                    normas = [];
+                    var i = 0;
+                    $.each( ramas, function( key, val ) {
+                        var subItems = [];
+                        
+                         
+                            val.Norma.filter(function (el) {
+                                return el.Orden !== "#";
+                            });
+                        
+
+                        $.each(val.Norma, function( k, v ) {
+
+                            if (v.Orden !== '#')
+                                if (state == "test" || state =="indice")
+                                    {
+                                        subItems.push("<li class='row'><div class='col-md-2 col-sm-2'>" + v.AntesNorma + "</div><div class='col-md-2 col-sm-2'>" + v.NumDJA.$ + "</div><div class='col-md-7 col-sm-7'><p target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + v.NumDJA.link.replace('\\','/') + "'>" + v.Titulo + "</p></div><div class='col-md-1 col-sm-1'><a class='btn-sm btn-warning pull-right' target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + v.NumDJA.link.replace('\\','/') + "'>Ver</a></div></li>");
+                                    }
+                                else{
+                                    subItems.push("<li class='row'><div class='col-md-2 col-sm-2'>" + v.NumDJA.$ + "</div><div class='col-md-9 col-sm-9'><p target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + v.NumDJA.link + "'>" + v.Titulo + "</p></div><div class='col-md-1 col-sm-1'><a class='btn-sm btn-warning pull-right' target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + v.NumDJA.link + "'>Ver</a></div></li>");
+                                }
+
+                        });
+
+                        var item = '';
+
+                        if (i == 0) {
+                            if (state == "test" || state =="indice") item = "<li><a data-toggle='collapse' data-parent='#accordion' href='#collapse" + key + "' class='indice'>" + val.Codigo + "</a></li>";
+                            else  item = "<li><a data-toggle='collapse' data-parent='#accordion' href='#collapse" + key + "' class='indice'>" + val.Titulo + "</a></li>";
+                            normas.push("<ul id='collapse" + key + "' class='collapse in'>" + '<div class="row hidden-xs" id=""><div class="col-md-2 col-sm-2"><b>N &deg; Norma</b></div><div class="col-sm-2 col-md-2"><b>Código</b></div><div class="col-sm-8 col-md-8"><b>Título</b></div></div>' + subItems.join( "" ) + "</ul>");
+                            lastChild = "#collapse" + key;
+                        }
+                        else {
+                            normas.push("<ul id='collapse" + key + "' class='collapse'>" + '<div class="row hidden-xs" id=""><div class="col-md-2 col-sm-2"><b>N &deg; Norma</b></div><div class="col-md-2 col-sm-2"><b>Código</b></div><div class="col-md-8 col-sm-8"><b>Título</b></div></div>' + subItems.join( "" ) + "</ul>");
+                             if (state == "test"  || state =="indice")item = "<li><a data-toggle='collapse' data-parent='#accordion' href='#collapse" + key + "' class='indice collapsed'>" + val.Codigo + "</a></li>";
+                             else item = "<li><a data-toggle='collapse' data-parent='#accordion' href='#collapse" + key + "' class='indice collapsed'>" + val.Titulo + "</a></li>";
+                        }
+                        indice.push(item);
+                        i++;
+                    });
+                    
+                    $('input.deletable').wrap('<span class="deleteicon wow fadeInUp" />').after($('<span/>').click(function() {
+                      $(this).prev('input').val('').focus();
+                      $(this).prev('input').keyup();
+                    }));
+
+                    $('input[name=search]').keyup(function () {
+                        var elements = [];
+                        items = [];
+
+                        if ($('input[name=search]').val() && $('input[name=search]').val().length >= 3) {
+
+                           
+                            $("#normas").html(' <img class="loader" src="../wp-content/themes/digesto/assets/images/loader.gif" alt="">');   
+                
+                            var regex = new RegExp(getRegex($('input[name=search]').val().toString().toLowerCase()));
+                            $.each( ramas, function( key, val ) {
+                                
+                                val.Norma.filter(function (el) {
+                                    return el.Orden !== "#";
+                                });
+                                
+                                $.each(val.Norma, function( k, v ) {
+                                    //console.log(v);
+                                    //regex.test(v.AntesNorma.toString().toLowerCase()
+                                    if (v.Orden !== '#')
+                                        //if (regex.test(getRegex(v.Titulo.toString().toLowerCase())) || regex.test(getRegex(v.NumDJA.$.toString().toLowerCase())) || regex.test(getRegex(v.AntesNorma.toString().toLowerCase())) ) {
+                                        if (regex.test((v.Titulo.toString().toLowerCase())) || regex.test((v.NumDJA.$.toString().toLowerCase())) || regex.test((v.AntesNorma.toString().toLowerCase())) ) {
+                                            items.push("<div class='row'><div class='col-md-2 col-sm-2'>" + v.AntesNorma + "</div><div class='col-md-2 col-sm-2'>" + v.NumDJA.$ + "</div><div class='col-md-7 col-sm-7'><p target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + (toString(v.NumDJA.link).replace('\\','/')) + "'>" + v.Titulo + "</p></div><div class='col-md-1 col-sm-1'><a class='btn-sm btn-warning pull-right' target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + (toString(v.NumDJA.link).replace('\\','/')) + "'>Ver</a></div></div>");
+                                        }
+                                });
+                            });                
+
+                            if (items.length > 0) {
+                                //$('#accordion').removeHighlight();
+                                $("#resultados").html('<div class="row hidden-xs" id=""><div class="col-md-2 col-sm-2"><b>N &deg; Norma</b></div><div class="col-md-2 col-sm-2"><b>Código</b></div><div class="col-md-8 col-sm-8"><b>Título</b></div></div>' + items.join( "" ));
+                                //$('#accordion > li').highlight($('input[name=search]').val());
+                                $("#accordion").html("");
+                                $("#normas").html("");
+                            } else {
+                                $("#accordion").html("");
+                                $("#normas").html("");
+                                $("#resultados").html("<p class='italic'>No se encontraron resultados</p>");
+                            }
+                        } else {
+
+                                lastChild = "#collapse0";
+                                $("#accordion").html('<h4>Filtre por las normas</h4>' + indice.join( "" ));
+                                $("#normas").html(normas.join( "" ));
+                                $("#resultados").html("");
+
+                                $('.indice').click(function () {
+                                    if (lastChild && lastChild != $(this).attr('href')) {
+                                        $(lastChild).addClass('collapse');
+                                        $(lastChild).removeClass('in');
+                                    }
+                                    lastChild = $(this).attr('href');
+
+                                });
+
+
+                        }
+
+                    });
+
+                    $("#accordion").html('<h4>Filtre por las normas</h4>' + indice.join( "" ));
+                    $("#accordion").addClass('animated fadeInUp');
+                    $("#normas").html(normas.join( "" ));         
+                    $("#normas").addClass('animated fadeInUp');         
+                    
+                    $('.indice').click(function () {
+                        if (lastChild  && lastChild != $(this).attr('href')) {
+                            $(lastChild).addClass('collapse');
+                            $(lastChild).removeClass('in');
+                        }
+                        lastChild = $(this).attr('href');
+                    });
+
+                })
+            );
+        </script>
+        <!--<div id="sidebar" class="col-md-4 pull-right" role="complementary">
+           <div class="sidebar-inner">
+              <aside class="widget-area">
+                 <div>
+                    <h3>Indice</h3>
+                    <div class="menu-herramientas-container" id="sidebar">
+                    </div>
+                 </div>
+              </aside>
+           </div>
+        </div>-->
+</div>
+
+</section><!--/#page-->
