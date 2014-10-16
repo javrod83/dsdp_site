@@ -32,7 +32,7 @@ $font-size-large:			$font-size-base * 1.6; 				// 24px
 $font-size-medium:			$font-size-base * 1.33;				// 20px
 $font-size-base: 			15px;								// 15px
 $font-size-small:			$font-size-base * 0.85; 			// 13px
-$font-size-xsmall:			$font-size-base * 0.73; 			// 11px
+$font-size-xsmall:			$font-size-base * 0.8; 			// 11px
 $text-shadow-image: 		0 2px 10px rgba(0, 0, 0, 0.1);
 
 /* etiquetas */
@@ -50,21 +50,9 @@ footer
 	margin: 30px 0 0 0;
 	padding: 20px 10px;
 }
-::-webkit-input-placeholder
+p
 {
-    color:    $color-gray !important;
-}
-:-moz-placeholder
-{
-    color:    $color-gray !important;
-}
-::-moz-placeholder
-{
-    color:    $color-gray !important;
-}
-:-ms-input-placeholder
-{
-    color:    $color-gray !important;
+	padding: 0 !important;
 }
 
 /* id */
@@ -107,8 +95,31 @@ footer
 }
 .form-base
 {
+	::-webkit-input-placeholder
+	{
+	    color:    $color-gray !important;
+	}
+	:-moz-placeholder
+	{
+	    color:    $color-gray !important;
+	}
+	::-moz-placeholder
+	{
+	    color:    $color-gray !important;
+	}
+	:-ms-input-placeholder
+	{
+	    color:    $color-gray !important;
+	}
+
 	fieldset
 	{
+		
+		label
+		{
+			font-size: $font-size-base;
+			font-weight: 400;
+		}
 		legend
 		{
 			border: none;
@@ -116,10 +127,53 @@ footer
 			font-weight: 600;
 			margin: 0 0 10px 0;
 		}
+		select
+		{
+			option
+			{
+				color:    $color-gray !important;
+			}
+		}
+	}
+}
+.form-lg
+{
+	::-webkit-input-placeholder
+	{
+	    display: inline-block;
+	    font-size: $font-size-base !important;
+	    padding: 2px 0 0 0;
+	}
+	:-moz-placeholder
+	{
+	    display: inline-block;
+	    font-size: $font-size-base !important;
+	    padding: 2px 0 0 0;
+	}
+	::-moz-placeholder
+	{
+	    display: inline-block;
+	    font-size: $font-size-base !important;
+	    padding: 2px 0 0 0;
+	}
+	:-ms-input-placeholder
+	{
+	    display: inline-block;
+	    font-size: $font-size-base !important;
+	    padding: 2px 0 0 0;
+	}
+
+	fieldset
+	{
 		label
 		{
-			font-size: $font-size-base;
-			font-weight: 400;
+			font-size: $font-size-medium;
+			font-weight: 300;
+			margin: 0 0 10px 0;
+		}
+		legend
+		{
+			font-size: $font-size-large;
 		}
 	}
 }
@@ -223,6 +277,11 @@ footer
 			background-color: white;
 		}
 	}
+}
+.text-note
+{
+	color: $color-gray;
+	font-size: $font-size-xsmall;
 }
 .text-p
 {

@@ -1,7 +1,7 @@
 <div class="container">
    <h1 class="title-heading">Formulario de consultas</h1>
    <div class="col-md-10 col-md-offset-1">
-      <form role="form" id="consultas-form" class="col-md-12 form-base">
+      <form role="form" id="consultas-form" class="col-md-12 form-base form-lg">
          <fieldset>
             <div class="row">
                <div class="col-md-6 form-group">
@@ -90,7 +90,7 @@
                   </div>
                   <div class="form-group">
                      <label for="adjuntar-archivo">Adjuntar archivo</label>
-                     <input type="file" id="adjuntar-archivo" class="btn btn-warning"/>
+                     <input type="file" id="adjuntar-archivo" class="btn btn-warning" placeholder="Adjuntar archivo" />
                   </div>
                </div>
                <div class="col-md-6">
@@ -100,7 +100,7 @@
                   </div>
                </div>
             </div><!--/.row-->
-
+            <hr class="border-bottom-gray" />
             <!-- revisar -->
 
             <div ng-show="requestError">
@@ -111,6 +111,7 @@
 
             <div class="row">
                <div class="col-md-12">
+                  <p class="col-md-8 text-note">Los datos marcados con * son obligatorios</p>
                   <input class="btn btn-success btn-lg pull-right col-md-4" type="submit" value="Enviar consulta" {{action submit target="view"}}data-loading-text="Enviando..." />
                </div>
             </div>
