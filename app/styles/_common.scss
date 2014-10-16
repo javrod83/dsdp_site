@@ -13,7 +13,7 @@ $color-dark-blue: 			rgba(59,139,181,1);
 $color-light-blue: 			rgba(79,202,248,1);
 $color-soft-gray:			#ddd;
 $color-light-gray:			#bbb;
-$color-gray:				#888;
+$color-gray:				#999;
 $color-main-gray:			#555;
 $color-dark-gray:			#333;
 $color-light-white:			rgba(255,255,255,0.3);
@@ -49,6 +49,22 @@ footer
 	background-color: $color-soft-gray;
 	margin: 30px 0 0 0;
 	padding: 20px 10px;
+}
+::-webkit-input-placeholder
+{
+    color:    $color-gray !important;
+}
+:-moz-placeholder
+{
+    color:    $color-gray !important;
+}
+::-moz-placeholder
+{
+    color:    $color-gray !important;
+}
+:-ms-input-placeholder
+{
+    color:    $color-gray !important;
 }
 
 /* id */
