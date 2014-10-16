@@ -34,7 +34,7 @@ angular
       templateUrl: 'views/consultas.html',
       controller: 'ConsultasCtrl'
     }).state('normativa', {
-      url: '/normativa',
+      url: '/normativa/:vigencia',
       templateUrl: 'views/normativa.html',
       controller: 'NormativaCtrl'
     });
