@@ -48,6 +48,50 @@ angular.module('digestoApp')
 
 
 
+    $scope.resultado = "NOTHING TO SHOW YET ";
+    var xhttp = '' ;
+    
+        function loadXMLDoc(filename)
+            {
+                
+                if (window.ActiveXObject)
+                    {
+                        xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                    }
+                else 
+                    {
+                        xhttp = new XMLHttpRequest();
+                    }
+
+                xhttp.open("GET", filename, false);
+                try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
+                xhttp.send("");
+                return xhttp.responseXML;
+            }
+
+        $scope.displayResult =     function ()
+            {
+                console.log('displayResult');
+            $scope.resultado = "LOADING " ;
+            var xml = loadXMLDoc("xml/ley22990.xml");
+            var xsl = loadXMLDoc("scripts/xsl/norma_html_01.xsl");
+            // code for IE
+            if (window.ActiveXObject || xhttp.responseType == "msxml-document")
+              {
+                console.log('displayResult');
+              ex = xml.transformNode(xsl);
+              document.getElementById("example").innerHTML = ex;
+              }
+            // code for Chrome, Firefox, Opera, etc.
+            else if (document.implementation && document.implementation.createDocument)
+              {
+                 console.log('displayResult');
+                  var xsltProcessor = new XSLTProcessor();
+                  xsltProcessor.importStylesheet(xsl);
+                  console.log(xsltProcessor.transformToFragment(xml, document));
+                  document.getElementById("example").appendChild( xsltProcessor.transformToFragment(xml, document));
+              }
+            }
 
 
   });
