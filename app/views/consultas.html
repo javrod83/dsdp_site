@@ -1,136 +1,138 @@
 <div class="container">
-   <h2>Formulario de consultas</h2>
-   <form role="form" id="musiciansForm" data-validate="parsley" style="float: left; margin: 10px 0 10px 0; width: 100%;">
-      <input type="hidden" id="type" name="type" value="m">
-      <div class="row">
-         <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-               <label for="first_name">Nombre y apellido</label>
-               <input class="form-control" type="text" id="first_name" name="first_name" data-required="true">
-            </div>
-         </div>
-         <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-              <label for="email">Email</label>
-               <input class="form-control" type="text" id="email" name="email">
-            </div>
-         </div>
-      </div>
+   <h1 class="title-heading">Formulario de consultas</h1>
+   <div class="col-md-10 col-md-offset-1">
+      <form role="form" id="consultas-form" class="col-md-12 form-base">
+         <fieldset>
+            <div class="row">
+               <div class="col-md-6 form-group">
+                  <label for="nombre-y-apellido">Nombre y Apellido *</label>
+                  <div class="input-group input-group-lg">
+                     <span class="input-group-addon">N</span>
+                     <input type="text" class="form-control" id="nombre-y-apellido" placeholder="Ej.: Juan Pérez">
+                  </div>
+               </div>
+               <div class="col-md-6 form-group">
+                  <label for="email">Email *</label>
+                  <div class="input-group input-group-lg">
+                     <span class="input-group-addon">@</span>
+                     <input type="email" class="form-control" id="email" placeholder="Ej.: ejemplo@ejemplo.com">
+                  </div>
+               </div>
+            </div><!--/.row-->
+            <div class="row">
+               <div class="col-md-6 form-group">
+                  <label for="telefono">Teléfono de contacto</label>
+                  <div class="input-group input-group-lg">
+                     <span class="input-group-addon">#</span>
+                     <input type="text" class="form-control" id="telefono" placeholder="Ej.: 1141235678">
+                  </div>
+               </div>
+               <div class="col-md-6 form-group">
+                  <label for="email">DNI</label>
+                  <div class="input-group input-group-lg">
+                     <span class="input-group-addon">1</span>
+                     <input type="text" class="form-control" id="email" placeholder="Ej.: 12345678">
+                  </div>
+               </div>
+            </div><!--/.row-->
+            <hr class="border-bottom-gray" />
+            <div class="row">
+               <div class="col-md-6 form-group">
+                  <label for="sector">Sector *</label>
+                  <div class="input-group input-group-lg">
+                     <span class="input-group-addon">o</span>
+                     <select class="form-control">
+                           <option value="0">Todas</option>
+                           <option value="1">ADM – Administrativo</option>
+                           <option value="2">ACU – Cultura, Ciencia y Tecnología</option>
+                           <option value="3">AED – Educación</option>
+                           <option value="4">ASA – Salud Pública</option>
+                           <option value="5">ASE – Seguridad</option>
+                           <option value="6">ASO – Acción y Desarrollo Social</option>
+                           <option value="7">B – Aduanero</option>
+                           <option value="8">C – Aeronáutico-Espacial</option>
+                           <option value="9">D – Bancario, Monetario y Financiero</option>
+                           <option value="10">E – Civil</option>
+                           <option value="11">F – Comercial</option>
+                           <option value="12">G – Comunitario</option>
+                           <option value="13">H – Constitucional</option>
+                           <option value="14">I – De la Comunicación</option>
+                           <option value="15">J – Diplomático y Consular</option>
+                           <option value="16">K – Económico</option>
+                           <option value="17">L – Impositivo</option>
+                           <option value="18">M – Industrial</option>
+                           <option value="19">N – Internacional Privado</option>
+                           <option value="20">O – Internacional Público</option>
+                           <option value="21">P – Laboral</option>
+                           <option value="22">Q – Medio Ambiente</option>
+                           <option value="23">R – Militar</option>
+                           <option value="24">S – Penal</option>
+                           <option value="25">T – Político</option>
+                           <option value="26">U – Procesal Civil y Comercial</option>
+                           <option value="27">V – Procesal Penal</option>
+                           <option value="28">W – Público Provincial y Municipal</option>
+                           <option value="29">X – Recursos Naturales</option>
+                           <option value="30">Y – Seguridad Social</option>
+                           <option value="31">Z – Transporte y Seguros</option>
+                     </select>
+                  </div>
+               </div>
+            </div><!--/.row-->
+            <hr class="border-bottom-gray" />
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label for="norma-a-consultar">Norma a consultar *</label>
+                     <div class="input-group input-group-lg">
+                        <span class="input-group-addon">?</span>
+                        <input type="text" class="form-control" id="norma-a-consultar" placeholder="Ej.: ACU-0191">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="adjuntar-archivo">Adjuntar archivo</label>
+                     <input type="file" id="adjuntar-archivo" class="btn btn-warning"/>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label for="norma-a-consultar">Mensaje *</label>
+                     <textarea class="form-control" rows="5" placeholder="Escriba aquí su mensaje"></textarea>
+                  </div>
+               </div>
+            </div><!--/.row-->
 
-      <div class="row">
-         <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-              <label for="cellphone">Telefono celular</label>
-              <input class="form-control"  type="text" id="cellphone" name="cellphone" data-type="phone" class="parsley-validated"> 
-            </div>
-         </div>
+            <!-- revisar -->
 
-         <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-               <label for="dni">DNI</label>
-               <input class="form-control" type="text" id="dni" name="dni" data-required="true">      
-            </div>
-         </div>
-      </div>
-
-       <hr>
-
-      <div class="row">
-         <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-                <label for="sector">Sector </label>
-                <select>
-                  <option value="option1">option 1</option>
-                  <option value="option2">option 2</option>
-                  <option value="option3">option 3</3option>
-                  <option value="option4">option 4</option>
-                </select>
-	         </div>
-         </div>
-
-      </div>
-
-      <div ng-show="sectorPublico.showImputs">
-         <div class="row">
-            <div class="col-md-6 col-sm-6">
-               <div class="form-group">
-                  <label for="organismo">Organismo al que pertenece</label>
-                  <input class="form-control" type="text" id="organismo" name="organismo">     
+            <div ng-show="requestError">
+               <div class="alert alert-error">
+                  <p>Ocurrio un error al enviar el formulario, intentelo nuevamente.</p>
                </div>
             </div>
-            <div class="col-md-6 col-sm-6">
-               <div class="form-group">
-                 <label for="cargo">Cargo</label>
-                 <input class="form-control"  type="text" id="cargo" name="cargo"> 
+
+            <div class="row">
+               <div class="col-md-12">
+                  <input class="btn btn-success btn-lg pull-right col-md-4" type="submit" value="Enviar consulta" {{action submit target="view"}}data-loading-text="Enviando..." />
                </div>
             </div>
-         </div>
-      </div>
 
-      <hr>
-
-      <div class="row">
-         <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-               <label for="consultation">Norma a consultar</label><br/>
-               <input class="form-control" type="text" id="consultation" name="consultation" placeholder="Ej: ACU-0191" class="parsley-validated">
-            </div>
-         </div>
-         <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-               <label for="cv">Adjuntar archivo</label>
-               <input class="form-control btn-warning" type="file" id="cv" name="cv">  
-               <div ng-show="fileError.show">
-                  <ul class="parsley-error-list" >
-                     <li class="required" style="display: list-item;">{{fileError.msg}}</li>
-                  </ul>                  
+            <div id="thenks" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" {{action closeThenks target="view"}} aria-hidden="true">×</button>
+                        <h3 id="myModalLabel"></h3>
+                     </div>
+                     <div class="modal-body">
+                        <p>Gracias por ponerse en contacto.</p>
+                     </div>
+                     <div class="modal-footer">
+                        <button class="btn btn-primary" {{action closeThenks target="view"}} aria-hidden="true">Cerrar</button>
+                     </div>
+                  </div>
                </div>
-
-
             </div>
-         </div>
-      </div>
 
-      <div class="row">
-         <div class="col-md-12">
-            <div class="form-group">
-               <span id="actividaderror"></span>
-               <label for="extra">Mensaje</label>
-               <textarea id="extra" name="extra" class="form-control" style="resize: vertical;" row="6" data-required="true"></textarea>
-            </div>
-         </div>
-      </div>
-
-
-      <div ng-show="requestError">
-         <div class="alert alert-error">
-            <p>Ocurrio un error al enviar el formulario, intentelo nuevamente.</p>
-         </div>
-      </div>
-
-         
-
-      <div class="row">
-         <div class="col-md-12">
-            <input class="btn btn-primary pull-right cbp-mc-submit" type="submit" value="Enviar" {{action submit target="view"}}data-loading-text="Enviando..." />
-         </div>
-      </div>
-   </form>
-
-   <div id="thenks" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-      <div class="modal-dialog modal-sm">
-         <div class="modal-content">
-            <div class="modal-header">
-               <button type="button" class="close" {{action closeThenks target="view"}} aria-hidden="true">×</button>
-               <h3 id="myModalLabel"></h3>
-            </div>
-            <div class="modal-body">
-               <p>Gracias por ponerse en contacto.</p>
-            </div>
-            <div class="modal-footer">
-               <button class="btn btn-primary" {{action closeThenks target="view"}} aria-hidden="true">Cerrar</button>
-            </div>
-         </div>
-      </div>
+         </fieldset>
+      </form>
    </div>
 </div>
