@@ -17,12 +17,45 @@
             </div>
         </form>
     </div>
-    <div id="normativa-main" class="row">
-        <div class="col-md-9">
-            <!--listado de busqueda-->
+    <div class="row">
+        <div class="col-md-3 pull-right">
+            <form role="form" id="normativa-filters" class="form-base">
+            <fieldset>
+                <legend class="title-secondary">Filtrar resultados</legend>
+                <div class="form-group">
+                    <h4 class="">Estado</h4>
+                    <label>
+                        <input type="checkbox"> Consolidadas en DJA
+                    </label>
+                    <label>
+                        <input type="checkbox"> En proceso de consolidación
+                    </label>
+                </div>
+            </fieldset>
+            </form>
         </div>
-        <div class="col-md-3">
-            <!--filtros-->
+        <div class="col-md-9 pull-left">
+            <section id="normativa-main">
+                <div class="nav-path-header">
+                    <p></p>
+                </div>
+                <section id="normativa-main-listado">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </section>
+                <div class="nav-path-footer">
+                    <ul class="pagination">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div><!--/.nav-path-footer-->
+            </section>
         </div>
     </div>
 </section><!--/#normativa-->
