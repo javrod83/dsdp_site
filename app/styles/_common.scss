@@ -114,7 +114,6 @@ p
 
 	fieldset
 	{
-		
 		legend
 		{
 			border: none;
@@ -162,8 +161,6 @@ p
 	{
 		label
 		{
-			font-size: $font-size-medium;
-			font-weight: 300;
 			margin: 0 0 10px 0;
 		}
 		legend
@@ -314,8 +311,8 @@ p
 }
 .title-third
 {
-	font-size: $font-size-base;
-	font-weight: 400;
+	font-size: $font-size-medium;
+	font-weight: 300;
 }
 .title-fourth
 {
