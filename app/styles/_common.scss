@@ -1,7 +1,6 @@
 @import "compass/css3";
 @import "compass/utilities";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,300italic,600italic,400,300,600,800);
-//@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,600,800);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 
 /* variables */
@@ -54,6 +53,14 @@ p
 {
 	padding: 0 !important;
 }
+strong
+{
+	font-weight: 700;
+}
+ul
+{
+	list-style-type: none;
+}
 
 /* id */
 
@@ -93,6 +100,14 @@ p
 {
 	margin: 0 0 0 8px;
 }
+.font-bold
+{
+	font-weight: 600 !important;
+}
+.font-secondary
+{
+	font-family: $font-family-secondary;
+}
 .form-base
 {
 	::-webkit-input-placeholder
@@ -117,16 +132,7 @@ p
 		legend
 		{
 			border: none;
-			font-size: $font-size-medium;
-			font-weight: 600;
 			margin: 0 0 10px 0;
-		}
-		select
-		{
-			option
-			{
-				color:    $color-gray !important;
-			}
 		}
 	}
 }
@@ -159,10 +165,6 @@ p
 
 	fieldset
 	{
-		label
-		{
-			margin: 0 0 10px 0;
-		}
 		legend
 		{
 			font-size: $font-size-large;
@@ -284,13 +286,11 @@ p
 }
 .text-note
 {
-	color: $color-gray;
 	font-size: $font-size-xsmall;
 }
 .text-p
 {
 	color: $color-main-gray;
-	font-family: $font-family-secondary;
 	font-size: $font-size-base !important;
 	margin: 20px 0;
 }
@@ -313,6 +313,7 @@ p
 {
 	font-size: $font-size-medium;
 	font-weight: 300;
+	margin: 0 0 10px 0;
 }
 .title-fourth
 {

@@ -6,7 +6,7 @@
 <section id="normativa" class="container">
     <div class="row">
         <form role="form" id="normativa-search" class="col-md-9 form-base form-lg">
-            <div class="form-group">
+            <div class="form-group row">
                 <div class="col-md-10">
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon">@</span>
@@ -31,17 +31,70 @@
                         <input type="checkbox"> En proceso de consolidación
                     </label>
                 </div>
+                <div class="form-group">
+                    <label for="filters-categorias" class="title-third">Categorías</label>
+                    <input type="text" class="form-control" id="filters-categorias" placeholder="Ej.: 12345678" />
+                </div>
+                <div class="form-group">
+                    <label for="filters-tema" class="title-third">Tema</label>
+                    <input type="text" class="form-control" id="filters-tema" placeholder="Ej.: 12345678" />
+                </div>
+                <div class="form-group">
+                    <label for="filters-fecha-sancion" class="title-third">Fecha de sanción</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select class="form-control">
+                                <option value="0" disabled selected>Desde</option>
+                                <option value="1">2014</option>
+                                <option value="2">2013</option>
+                                <option value="3">2012</option>
+                                <option value="4">2011</option>
+                                <option value="5">2010</option>
+                                <option value="6">2009</option>
+                                <option value="7">2008</option>
+                                <option value="8">2007</option>
+                                <option value="9">2006</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-control">
+                                <option value="0" disabled selected>Hasta</option>
+                                <option value="1">2014</option>
+                                <option value="2">2013</option>
+                                <option value="3">2012</option>
+                                <option value="4">2011</option>
+                                <option value="5">2010</option>
+                                <option value="6">2009</option>
+                                <option value="7">2008</option>
+                                <option value="8">2007</option>
+                                <option value="9">2006</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </fieldset>
             </form>
         </div>
         <div class="col-md-9 pull-left">
             <section id="normativa-main">
                 <div class="nav-path-header">
-                    <p></p>
+                    <p class="text-p"><strong>20.789</strong> resultados para <strong>"trabajo infantil en escuelas públicas"</strong></p>
                 </div>
-                <section id="normativa-main-listado">
-                    <ul>
-                        <li></li>
+                <section id="normativa-main-list">
+                    <ul class="list-group table-list">
+                        <li id="list-header" class="col-md-12">
+                            <ul class="list-group">
+                                <div class="col-md-5">
+                                    <li class="col-md-4"><a href="#" title="Fecha" class="title-fifth">Fecha<span class="caret"></span></a></li>
+                                    <li class="col-md-4"><a href="#" title="Fecha" class="title-fifth">N° de Norma<span class="caret"></span></a></li>
+                                    <li class="col-md-4"><a href="#" title="Fecha" class="title-fifth">Código<span class="caret"></span></a></li>
+                                </div>
+                                <div class="col-md-7 row">
+                                    <li class="col-md-10"><a href="#" title="Fecha" class="title-fifth">Descripción</a></li>
+                                    <li class="col-md-2"><a href="#" title="Fecha" class="title-fifth">Estado</a></li>
+                                </div>
+                           </ul>
+                        </li>
                     </ul>
                 </section>
                 <div class="nav-path-footer">
