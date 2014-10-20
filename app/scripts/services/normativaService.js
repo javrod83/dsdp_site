@@ -7,6 +7,16 @@
  * # Normativa
  * Service in the digestoApp.
  */
+
+//sugenrecias de busqueda
+//http://sparl-desa.hcdn.gob.ar:8080/exist/rest/db/digesto/sugerencia.xql?query=
+
+//busqueda por numero de ley
+//http://sparl-desa.hcdn.gob.ar:8080/exist/rest/db/digesto/index-json2.xql?ley=14394
+
+//busuqeda por frase
+//http://sparl-desa.hcdn.gob.ar:8080/exist/rest/db/digesto/index-json2.xql?query=14394
+
 angular.module('digestoApp')
   .factory('ServiciosdeBusqueda', ['$http','$q','config',function ($http,$q,config) {
     // AngularJS will instantiate a singleton by calling "new" on this function
@@ -15,7 +25,7 @@ angular.module('digestoApp')
     	var method : {
     		normaPorNumero : function (params){
 
-    			return '/norma.xql?numero=' + params ; 
+    			return 'index-json2.xql?ley=' + params ; 
     		},
     		sugerenciasBusqueda : function (params){
 
@@ -23,7 +33,7 @@ angular.module('digestoApp')
     		},
     		normaPorQuery : function (params){
 
-    			return '/normas.xql?query=' + params ; 
+    			return 'index-json2.xql?query=' + params ; 
     		}
     	}
 
