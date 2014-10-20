@@ -9,26 +9,42 @@
 
 /* clases */
 
-.table-list
+.list-group
 {
-	li
+	ul
 	{
-		display: inline-block;
-		padding: 10px 0;
+		padding: 20px 0;
 	}
-
 	#list-header
 	{
 		background-color: $color-soft-gray;
-		padding: 20px 0;
+		border-top: 1px solid $color-light-gray;
+		border-bottom: 1px solid $color-light-gray;
 
 		ul
 		{
-			margin: 0;
-
 			li
 			{
-				padding: 0 10px;
+				a
+				{
+					color: $color-main-gray;
+					font-weight: 600 !important;
+				}
+			}
+		}
+	}
+	.list-item
+	{
+		border-bottom: 1px solid $color-light-gray;
+
+		ul
+		{
+			li
+			{
+				a
+				{
+					color: $color-main-blue;
+				}
 			}
 		}
 	}
