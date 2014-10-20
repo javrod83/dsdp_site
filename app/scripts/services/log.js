@@ -16,7 +16,7 @@ angular.module('digestoApp')
 
     // Public API here
     return {
-      someMethod: function () {
+      log: function () {
         return meaningOfLife;
       }
     };
