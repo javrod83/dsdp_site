@@ -10,8 +10,8 @@
 $color-main-blue: 			rgba(73,171,222,1);
 $color-dark-blue: 			rgba(59,139,181,1);
 $color-light-blue: 			rgba(79,202,248,1);
-$color-soft-gray:			#ddd;
-$color-light-gray:			#bbb;
+$color-soft-gray:			#eee;
+$color-light-gray:			#cfcfcf;
 $color-gray:				#999;
 $color-main-gray:			#555;
 $color-dark-gray:			#333;
@@ -133,6 +133,10 @@ ul
 		{
 			border: none;
 			margin: 0 0 10px 0;
+		}
+		label.title-third
+		{
+			margin: 15px 0 10px 0;
 		}
 	}
 }
@@ -284,6 +288,10 @@ ul
 		}
 	}
 }
+.text-bold
+{
+	font-weight: 600;
+}
 .text-note
 {
 	font-size: $font-size-xsmall;
@@ -291,6 +299,7 @@ ul
 .text-p
 {
 	color: $color-main-gray;
+	font-family: $font-family-secondary;
 	font-size: $font-size-base !important;
 	margin: 20px 0;
 }
@@ -316,6 +325,11 @@ ul
 	margin: 0 0 10px 0;
 }
 .title-fourth
+{
+	font-size: $font-size-base;
+	font-weight: 600;
+}
+.title-fifth
 {
 	font-size: $font-size-small;
 	font-weight: 400;
