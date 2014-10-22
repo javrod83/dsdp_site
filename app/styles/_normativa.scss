@@ -6,6 +6,7 @@
 
 	/* id */
 
+<<<<<<< HEAD
 	#normativa-input-search{
 		padding:0 ; 
 		.angucomplete-holder{
@@ -23,6 +24,71 @@
 		}	
 	}
 	
+=======
+#normativa-filters
+{
+	margin: 8px 0 0 0;
+
+	form
+	{
+		fieldset
+		{
+
+			legend
+			{
+				border-bottom: 1px solid $color-gray;
+				padding: 0 0 5px 0;
+				margin: 0 0 30px 0;
+			}
+		}
+	}
+	#normativa-filters-tags
+	{
+		margin: 0 0 30px 0;
+	}
+}
+#normativa-search
+{
+	#normativa-input-search
+	{
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+		color: $color-main-gray;
+		font-size: $font-size-large;
+		font-weight: 300;
+		padding: 0;
+		position: relative;
+		bottom: -5px;
+		width: 100%;
+	}
+	.form-group
+	{
+		border-bottom: 2px solid $color-light-gray;
+		padding: 0 0 5px 0;
+	}
+	::-webkit-input-placeholder
+	{
+		font-size: $font-size-large !important;
+		font-weight: 300;
+	}
+	:-moz-placeholder
+	{
+		font-size: $font-size-large !important;
+		font-weight: 300;
+	}
+	::-moz-placeholder
+	{
+		font-size: $font-size-large !important;
+		font-weight: 300;
+	}
+	:-ms-input-placeholder
+	{
+		font-size: $font-size-large !important;
+		font-weight: 300;
+	}
+}
+>>>>>>> c9cb54ca0eff2b79cf961e672d4fd32c5a746b5b
 
 /* clases */
 
@@ -58,6 +124,10 @@
 		{
 			li
 			{
+				.title-fourth
+				{
+					margin-top: 0;
+				}
 				a
 				{
 					color: $color-main-blue;
