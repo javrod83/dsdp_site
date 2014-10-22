@@ -23,21 +23,30 @@
 			}
 		}
 	}
+	#normativa-filters-tags
+	{
+		margin: 0 0 30px 0;
+	}
 }
 #normativa-search
 {
 	#normativa-input-search
 	{
-		border-top: 0;
-		border-right: 0;
-		border-bottom: 2px solid $color-light-gray;
-		border-left: 0;
+		border: 0;
 		border-radius: 0;
 		box-shadow: none;
 		color: $color-main-gray;
 		font-size: $font-size-large;
 		font-weight: 300;
-		line-height: 1;
+		padding: 0;
+		position: relative;
+		bottom: -5px;
+		width: 100%;
+	}
+	.form-group
+	{
+		border-bottom: 2px solid $color-light-gray;
+		padding: 0 0 5px 0;
 	}
 	::-webkit-input-placeholder
 	{
@@ -95,6 +104,10 @@
 		{
 			li
 			{
+				.title-fourth
+				{
+					margin-top: 0;
+				}
 				a
 				{
 					color: $color-main-blue;

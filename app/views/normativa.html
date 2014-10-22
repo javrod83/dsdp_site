@@ -5,22 +5,27 @@
 </div><!--/.heading-->
 <section id="normativa" class="container">
     <div class="row">
-        <form role="form" id="normativa-search" class="col-md-9 form-base form-lg">
-            <div class="form-group row">
-                <div class="col-md-10">
-                    <div class="col-md-12 input-group input-group-lg">
-                        <input type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" />
-                    </div>
+        <form role="form" id="normativa-search" class="col-md-9 col-sm-12 form-inline form-lg">
+            <div class="form-group col-md-12 col-sm-12">
+                <div class="col-md-10 col-sm-9">
+                    <input type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" />
                 </div>
-                <input class="btn btn-warning btn-lg pull-right col-md-2" type="submit" value="Buscar" />
+                <button class="btn btn-warning btn-lg pull-right col-md-2 col-sm-3" type="submit" value="Buscar" >Buscar</button>
             </div>
-        </form>
+        </form><!--/#normativa-search-->
     </div>
     <div class="row">
-        <aside id="normativa-filters" class="col-md-3 pull-right">
+        <aside id="normativa-filters" class="col-md-3 col-sm-12 pull-right">
             <form role="form" id="normativa-filters" class="form-base">
             <fieldset>
                 <legend class="title-secondary">Filtrar resultados</legend>
+                <section id="normativa-filters-tags" class="filters">
+                    <button class="tag filters-tags">Filtro categoría 1 <i class="fa fa-remove"></i></button>
+                    <button class="tag filters-tags">Filtro categoría 2 <i class="fa fa-remove"></i></button>
+                    <button class="tag filters-tags">Tema 1 <i class="fa fa-remove"></i></button>
+                    <button class="tag filters-tags">Filtro años 1 <i class="fa fa-remove"></i></button>
+                    <a href="#" title="Mostrar todos" class="show-all">mostrar todos (+20)</a>
+                </section><!--/#normativa-filters-tags-->
                 <div class="form-group">
                     <h4 class="title-third">Estado</h4>
                     <label class="title-fifth">
@@ -31,12 +36,78 @@
                     </label>
                 </div>
                 <div class="form-group">
-                    <label for="filters-categorias" class="title-third">Categorías</label>
-                    <input type="text" class="form-control" id="filters-categorias" placeholder="Ej.: 12345678" />
+                    <label for="filters-categorias" class="title-third">Categoría</label>
+                    <select class="form-control">
+                        <option value="0">Todas</option>
+                        <option value="1">ADM – Administrativo</option>
+                        <option value="2">ACU – Cultura, Ciencia y Tecnología</option>
+                        <option value="3">AED – Educación</option>
+                        <option value="4">ASA – Salud Pública</option>
+                        <option value="5">ASE – Seguridad</option>
+                        <option value="6">ASO – Acción y Desarrollo Social</option>
+                        <option value="7">B – Aduanero</option>
+                        <option value="8">C – Aeronáutico-Espacial</option>
+                        <option value="9">D – Bancario, Monetario y Financiero</option>
+                        <option value="10">E – Civil</option>
+                        <option value="11">F – Comercial</option>
+                        <option value="12">G – Comunitario</option>
+                        <option value="13">H – Constitucional</option>
+                        <option value="14">I – De la Comunicación</option>
+                        <option value="15">J – Diplomático y Consular</option>
+                        <option value="16">K – Económico</option>
+                        <option value="17">L – Impositivo</option>
+                        <option value="18">M – Industrial</option>
+                        <option value="19">N – Internacional Privado</option>
+                        <option value="20">O – Internacional Público</option>
+                        <option value="21">P – Laboral</option>
+                        <option value="22">Q – Medio Ambiente</option>
+                        <option value="23">R – Militar</option>
+                        <option value="24">S – Penal</option>
+                        <option value="25">T – Político</option>
+                        <option value="26">U – Procesal Civil y Comercial</option>
+                        <option value="27">V – Procesal Penal</option>
+                        <option value="28">W – Público Provincial y Municipal</option>
+                        <option value="29">X – Recursos Naturales</option>
+                        <option value="30">Y – Seguridad Social</option>
+                        <option value="31">Z – Transporte y Seguros</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="filters-tema" class="title-third">Tema</label>
-                    <input type="text" class="form-control" id="filters-tema" placeholder="Ej.: 12345678" />
+                    <select class="form-control">
+                        <option value="0">Todos</option>
+                        <option value="1">Tema 1</option>
+                        <option value="2">Tema 2</option>
+                        <option value="3">Tema 3</option>
+                        <option value="4">Tema 4</option>
+                        <option value="5">Tema 5</option>
+                        <option value="6">Tema 6</option>
+                        <option value="7">Tema 7</option>
+                        <option value="8">Tema 8</option>
+                        <option value="9">Tema 9</option>
+                        <option value="10">Tema 10</option>
+                        <option value="11">Tema 11</option>
+                        <option value="12">Tema 12</option>
+                        <option value="13">Tema 13</option>
+                        <option value="14">Tema 14</option>
+                        <option value="15">Tema 15</option>
+                        <option value="16">Tema 16</option>
+                        <option value="17">Tema 17</option>
+                        <option value="18">Tema 18</option>
+                        <option value="19">Tema 19</option>
+                        <option value="20">Tema 20</option>
+                        <option value="21">Tema 21</option>
+                        <option value="22">Tema 22</option>
+                        <option value="23">Tema 23</option>
+                        <option value="24">Tema 24</option>
+                        <option value="25">Tema 25</option>
+                        <option value="26">Tema 26</option>
+                        <option value="27">Tema 27</option>
+                        <option value="28">Tema 28</option>
+                        <option value="29">Tema 29</option>
+                        <option value="30">Tema 30</option>
+                        <option value="31">Tema 31</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="filters-fecha-sancion" class="title-third">Fecha de sanción</label>
@@ -102,7 +173,7 @@
                             <ul class="row">
                                 <div class="col-md-7 pull-right">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="col-md-10"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></li>
+                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
                                         <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
                                     </div>
                                 </div>
@@ -119,7 +190,7 @@
                             <ul class="row">
                                 <div class="col-md-7 pull-right">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="col-md-10"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></li>
+                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
                                         <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
                                     </div>
                                 </div>
@@ -136,7 +207,7 @@
                             <ul class="row">
                                 <div class="col-md-7 pull-right">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="col-md-10"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></li>
+                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
                                         <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
                                     </div>
                                 </div>
@@ -153,7 +224,7 @@
                             <ul class="row">
                                 <div class="col-md-7 pull-right">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="col-md-10"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></li>
+                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
                                         <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
                                     </div>
                                 </div>
@@ -170,7 +241,7 @@
                             <ul class="row">
                                 <div class="col-md-7 pull-right">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="col-md-10"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></li>
+                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
                                         <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
                                     </div>
                                 </div>
@@ -187,7 +258,7 @@
                             <ul class="row">
                                 <div class="col-md-7 pull-right">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="col-md-10"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></li>
+                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
                                         <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
                                     </div>
                                 </div>
@@ -204,7 +275,7 @@
                             <ul class="row">
                                 <div class="col-md-7 pull-right">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="col-md-10"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></li>
+                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
                                         <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
                                     </div>
                                 </div>
