@@ -7,7 +7,7 @@
  * # ConfiguracionGeneral
  * Factory in the angularApp.
  */
-angular.module('angularApp')
+angular.module('digestoApp')
   .factory('ConfiguracionGeneral', function () {
     // Service logic
     // ...

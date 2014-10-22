@@ -10,10 +10,11 @@
                 <div class="col-md-10">
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon">@</span>
-                        <input type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" />
+              
+                       <input type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda"  ng-model="textoBusqueda" ng-enter="sugerengia()"/> 
                     </div>
                 </div>
-                <input class="btn btn-warning btn-lg pull-right col-md-2" type="submit" value="Buscar" />
+                <input class="btn btn-warning btn-lg pull-right col-md-2" type="submit" value="Buscar"   ng-click="buscar()" />
             </div>
         </form>
     </div>
@@ -81,6 +82,7 @@
                     <p class="text-p"><strong>20.789</strong> resultados para <strong>"trabajo infantil en escuelas públicas"</strong></p>
                 </div>
                 <section id="normativa-main-list">
+
                     <ul class="list-group">
                         <li id="list-header" class="col-md-12">
                             <ul class="row">
@@ -219,6 +221,7 @@
                            </ul>
                         </li>
                     </ul>
+
                 </section>
                 <div class="nav-path-footer">
                     <ul class="pagination">
@@ -235,3 +238,4 @@
         </div>
     </div>
 </section><!--/#normativa-->
+\
