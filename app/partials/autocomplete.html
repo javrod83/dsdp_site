@@ -1,0 +1,7 @@
+<div class="autocomplete-container">
+	<input type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" ng-model="textoBusqueda" ng-enter="buscarPorSugerencia()" ng-keyup="buscarSugerencia()"/>
+	<ul ng-repeat="sugerencia en sugerencias" class= "autocomplete-sugestions-list">
+	    <li class="autocomplete-sugestion-item" ng-click="textoBusqueda = {{sugerencia}}">{{sugerencia}}</li>
+	</ul>
+</div>
+                

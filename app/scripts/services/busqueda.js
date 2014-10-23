@@ -23,9 +23,9 @@ angular.module('digestoApp')
         //http://sparl-desa.hcdn.gob.ar:8080/exist/rest/db/digesto/index-json2.xql?query=14394
 
     	var method  =  {
-    		normaPorNumero      : function (params) { return 'index-json2.xql?ley='   + params ; },
-    		sugerenciasBusqueda : function (params) { return '/sugerencia.xql?query=' + params ; },
-    		normaPorQuery       : function (params) { return 'index-json2.xql?query=' + params ; }
+    		normaPorNumero      : function (params) { return '/index-json2.xql?ley='   + params ; },
+    		sugerenciasBusqueda : function (params) { return '/sugerencia.xql?query='  + params ; },
+    		normaPorQuery       : function (params) { return '/index-json2.xql?query=' + params ; }
     	};
 
         return  {
