@@ -12,15 +12,11 @@
 
 	form
 	{
-		fieldset
+		legend
 		{
-
-			legend
-			{
-				border-bottom: 1px solid $color-gray;
-				padding: 0 0 5px 0;
-				margin: 0 0 30px 0;
-			}
+			border-bottom: 1px solid $color-gray;
+			padding: 0 0 5px 0;
+			margin: 0 0 30px 0;
 		}
 	}
 	#normativa-filters-tags
@@ -35,12 +31,13 @@
 		border: 0;
 		border-radius: 0;
 		box-shadow: none;
-		color: $color-main-gray;
+		color: $color-gray;
 		font-size: $font-size-large;
-		font-weight: 300;
+		font-weight: 400;
+		min-height: 40px;
 		padding: 0;
 		position: relative;
-		bottom: -5px;
+		bottom: -4px;
 		width: 100%;
 	}
 	.form-group
@@ -50,23 +47,23 @@
 	}
 	::-webkit-input-placeholder
 	{
+		color: $color-light-gray;
 		font-size: $font-size-large !important;
-		font-weight: 300;
 	}
 	:-moz-placeholder
 	{
+		color: $color-light-gray;
 		font-size: $font-size-large !important;
-		font-weight: 300;
 	}
 	::-moz-placeholder
 	{
+		color: $color-light-gray;
 		font-size: $font-size-large !important;
-		font-weight: 300;
 	}
 	:-ms-input-placeholder
 	{
+		color: $color-light-gray;
 		font-size: $font-size-large !important;
-		font-weight: 300;
 	}
 }
 
