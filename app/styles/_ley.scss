@@ -1,10 +1,194 @@
 /* variables */
 
+/* etiquetas */
 
-/* etiquetas
+main
+{
+    display: block;
+}
+p
+{
+    line-height: 1.4;
+}
+ul
+{
+    list-style-type: none;
+}
 
-
-/* id */
+/* ids */
 
 
 /* clases */
+
+.article-num
+{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.list-incisos
+{
+    font-size: 15px;
+    font-style: italic;
+    padding: 0 10%;
+}
+.list-incisos-num
+{
+    font-weight: bold;
+}
+.title
+{
+    &:hover
+    {
+    background: rgba(0,180,225,0.1);
+    -webkit-transition: background-color 0.3s ease 0.1s;
+    -moz-transition: background-color 0.3s ease 0.1s;
+    -o-transition: background-color 0.3s ease 0.1s;
+    transition: background-color 0.3s ease 0.1s;
+	}
+}
+.title-article
+{
+    font-style: italic;
+    margin: 30px 0 0 0 !important;
+}
+.title-article-sub
+{
+    font-style: italic;
+    font-weight: bold;
+}
+.title-docnumber
+{
+    font-size: 16px;
+    font-style: normal;
+    margin: 8px 0 0 0;
+}
+.title-ley,
+.title-primary,
+.title-secondary,
+.title-titulo
+{
+    text-align: center;
+}
+.title-ley,
+.title-ley,
+.title-primary,
+.title-secondary,
+.title-titulo
+{
+    span,
+    strong
+    {
+    display: block;
+	}
+}
+.title-ley
+{
+    border-bottom: 1px solid #777;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 400;
+    margin: 20px 0 0 0;
+    padding: 0 0 50px 0;
+}
+.title-ley
+{
+ 	strong
+ 	{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 25px 0 0 0;
+    text-transform: uppercase;
+	}
+}
+.title-primary,
+.title-secondary
+{
+    span
+    {
+    font-style: italic;
+    font-weight: normal;
+    margin: 10px 0 0 0;
+	}
+}
+.title-primary
+{
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+    padding: 30px 0 44px 0;
+}
+.title-secondary
+{
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    padding: 24px 0 36px 0;
+}
+.title-titulo
+{
+    font-size: 24px;
+    margin: 0;
+    padding: 24px 0 44px 0;
+    text-transform: uppercase;
+}
+.title-titulo
+{
+    span
+    {
+    font-size: 21px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+    text-transform: capitalize;
+	}
+}
+.wrapper-main
+{
+    margin: auto;
+    max-width: 800px;
+    padding: 0 20px;
+    width: 100%;
+}
+.wrapper-notes
+{
+    &:before
+    {
+    content: ' ';
+    background: #fff;
+    border-bottom: 1px solid #777;
+    display: block;
+    height: 1px;
+    margin: auto;
+	}
+}
+.wrapper-chapter,
+.wrapper-section
+{
+    &:after
+    {
+    content: ' ';
+    background: #fff;
+    border-bottom: 1px dotted #999;
+    display: block;
+    height: 1px;
+    margin: auto;
+    max-width: 400px;
+	}
+}
+.wrapper-chapter,
+.wrapper-section
+{
+    &:last-child
+    {
+    	&:after
+    	{
+    	content: ' ';
+    	border:none;
+    	}
+	}
+}
+.wrapper-title
+{
+    border-bottom: 1px dotted #555;
+}
