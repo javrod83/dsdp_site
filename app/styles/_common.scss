@@ -1,7 +1,9 @@
 @import "compass/css3";
 @import "compass/utilities";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700);
-@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic);
+//@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,400,700,700);
+//@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 
 /* variables */
 
@@ -23,15 +25,15 @@ $navbar-height: 			64px;
 
 // Fuentes
 
-$font-family-primary: 		'Open Sans', sans-serif;
-$font-family-secondary: 	'Lora', serif;
-$font-size-xxlarge:			$font-size-base * 2.67;				// 40px
-$font-size-xlarge:			$font-size-base * 2; 				// 30px
-$font-size-large:			$font-size-base * 1.6; 				// 24px
-$font-size-medium:			$font-size-base * 1.33;				// 20px
-$font-size-base: 			15px;								// 15px
-$font-size-small:			$font-size-base * 0.85; 			// 13px
-$font-size-xsmall:			$font-size-base * 0.8; 				// 11px
+$font-family-primary: 		'PT Sans', sans-serif;
+$font-family-secondary: 	'PT Serif', serif;
+$font-size-xxlarge:			$font-size-base * 2.86;							
+$font-size-xlarge:			$font-size-base * 2.145; 							
+$font-size-large:			$font-size-base * 1.5; 							
+$font-size-medium:			$font-size-base * 1.25;							
+$font-size-base: 			16px;											
+$font-size-small:			$font-size-base * 0.875; 						
+$font-size-xsmall:			$font-size-base * 0.6875; 						
 $text-shadow-image: 		0 2px 10px rgba(0, 0, 0, 0.1);
 
 /* etiquetas */
@@ -104,7 +106,7 @@ ul
 {
 	background-color: $color-gray;
 	color: white;
-	font-weight: 600;
+	font-weight: 700;
 	position: relative;
 
 	.fa-remove
@@ -114,7 +116,7 @@ ul
 }
 .font-bold
 {
-	font-weight: 600 !important;
+	font-weight: 700 !important;
 }
 .font-secondary
 {
@@ -138,7 +140,6 @@ ul
 	{
 	    color:    $color-gray !important;
 	}
-
 	fieldset
 	{
 		legend
@@ -178,7 +179,6 @@ ul
 	    font-size: $font-size-base !important;
 	    padding: 2px 0 0 0;
 	}
-
 	fieldset
 	{
 		legend
@@ -293,7 +293,6 @@ ul
 		{
 			background-color: $color-main-blue;
 		}
-
 		.icon-bar
 		{
 			background-color: white;
@@ -325,7 +324,7 @@ ul
 }
 .text-bold
 {
-	font-weight: 600;
+	font-weight: 700;
 }
 .text-note
 {
@@ -341,28 +340,28 @@ ul
 .title-heading
 {
 	font-size: $font-size-xxlarge !important;
-	font-weight: 300;
+	font-weight: 700;
 }
 .title-primary
 {
 	font-size: $font-size-xxlarge !important;
-	font-weight: 600;
+	font-weight: 400;
 }
 .title-secondary
 {
-	font-size: $font-size-xlarge;
-	font-weight: 300;
+	font-size: $font-size-xlarge !important;
+	font-weight: 400;
 }
 .title-third
 {
 	font-size: $font-size-medium;
-	font-weight: 300;
+	font-weight: 400;
 	margin: 0 0 10px 0;
 }
 .title-fourth
 {
 	font-size: $font-size-base;
-	font-weight: 600;
+	font-weight: 700;
 }
 .title-fifth
 {

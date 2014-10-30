@@ -6,29 +6,45 @@
 
 /* id */
 
-#jumbo-landing
+#landing
 {
-	background: url('../images/login-sparl-01-1024x488.jpg') no-repeat 100%;
-	background-size: cover;
-	width: 100%;
-
 	#jumbo-info
 	{
-		margin: 50px 0;
-		text-align: center;
-	}
-	.container
-	{
-		h1
-		{
-			color: white;
-			margin: 30px 0;
-		}
+		margin: 105px 0 0 0;
+		
 		p
 		{
 			color: white;
 			text-shadow: $text-shadow-image;
 		}
+		.title-heading
+		{
+			color: white !important;
+			margin: 20px 0 0 0;
+			padding: 15px 0;
+		}
+	}
+	.btn
+	{
+		font-size: $font-size-base;
+	}
+	.container
+	{
+		.article-description
+		{
+			.title-secondary
+			{
+				color: $color-main-gray;
+				padding: 10px 0;
+				text-align: left;
+			}
+		}
+	}
+	.jumbotron
+	{
+		background: url('../images/login-sparl-01-1024x488.jpg') no-repeat 100%;
+		background-size: cover;
+		width: 100%;
 	}
 }
 #landing-form-search
@@ -38,10 +54,10 @@
 	border-radius: $border-radius-base;
 	padding: 15px;
 
-	label
-		{
-			font-size: $font-size-small;
-		}
+	.title-fourth
+	{
+		font-size: $font-size-small;
+	}
 }
 
 /* clases */
