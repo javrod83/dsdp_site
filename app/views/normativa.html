@@ -9,7 +9,7 @@
         <form role="form" id="normativa-search" class="col-md-9 col-xs-12 form-inline form-lg">
             <div class="form-group col-md-12 col-xs-12">
                 <div class="col-md-10 col-xs-9">
-                    <input type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" ng-model="textoBusqueda" ng-enter="sugerencia()" />
+                    <div data-autocomplete type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" ng-model="textoBusqueda"  ></div>
                 </div>
                 <button class="btn btn-warning btn-lg pull-right col-md-2 col-xs-3" type="submit" value="Buscar" ng-click="buscar()" >Buscar</button>
             </div>
@@ -154,8 +154,8 @@
         </aside>
         <div class="col-md-9 col-xs-12 pull-left">
             <section id="normativa-main">
-                <div class="nav-path-header">
-                    <p class="text-p"><strong>20.789</strong> resultados para <strong>"trabajo infantil en escuelas públicas"</strong></p>
+                <div class="nav-path-header" ng-show="showResult">
+                    <p class="text-p"><strong>{{respuestas.length}}</strong> resultados para <strong>"{{textoBusqueda}}"</strong></p>
                 </div>
                 <section id="normativa-main-list">
 
@@ -177,139 +177,31 @@
                                 </div>
                            </ul>
                         </li>
-                        <li class="list-item col-md-12">
+                        <li class="list-item col-md-12" ng-repeat="respuesta in respuestas">
                             <ul class="row">
                                 <div class="col-md-7 pull-right">
                                     <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
+                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="{{respuesta.NumDJA.link}}" title="Descripción" class="text-bold">{{respuesta.Titulo}}</a></h2></li>
                                         <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
                                     </div>
                                 </div>
                                 <div class="col-md-5 pull-left">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
+                                        <li id="list-item-fecha" class="col-md-4">{{respuesta.FechaSanc.dia}}/{{respuesta.FechaSanc.mes}}/{{respuesta.FechaSanc.anio}}</li>
+                                        <li id="list-item-nro-norma" class="col-md-4">{{respuesta.AntesNorma}}</li>
+                                        <li id="list-item-codigo"class="col-md-4">{{respuesta.NumDJA.text}}</li>
                                     </div>
                                 </div>
                            </ul>
                         </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
+
                     </ul>
 
                 </section>
-                <div class="nav-path-footer">
-                    <ul class="pagination pull-right">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
-                </div><!--/.nav-path-footer-->
+
+                <div  ng-include src='"partials/paginador.html"'></div>
+               
+                
             </section>
         </div>
     </div>

@@ -24,7 +24,7 @@ angular.module('digestoApp')
 
     	var method  =  {
     		normaPorNumero      : function (params) { return '/index-json2.xql?ley='   + params ; },
-    		sugerenciasBusqueda : function (params) { return '/sugerencia.xql?query='  + params ; },
+    		sugerenciasBusqueda : function (params) { return '/sugerencias2.xql?query='  + params ; },
     		normaPorQuery       : function (params) { return '/index-json2.xql?query=' + params ; }
     	};
 
@@ -60,8 +60,4 @@ angular.module('digestoApp')
                 });
             }
         } ;
-   s
-
-
-
   }]);
