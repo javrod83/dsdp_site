@@ -1,10 +1,10 @@
-<div class="nav-path-footer">
+<div class="nav-path-footer" ng-show="numeroDePaginas.length > 0 ">
     <ul class="pagination pull-right">
         <li>
             <a href="#">&laquo;</a>
         </li>
-        <li ng-repeat="pagina in paginas">
-            <a  ng-glick="mostrarPagina(pagina)">{{pagina}}</a>
+        <li ng-repeat="numeroDePagina in numeroDePaginas">
+            <a  ng-click="mostrarPagina(numeroDePagina)">{{numeroDePagina}}</a>
         </li>
         <li>
             <a href="#">&raquo;</a>
