@@ -205,17 +205,17 @@ ul
 	font-size: $font-size-base;
 	margin: 0;
 }
-.navbar-collapse
-{
-	@media (max-width: $grid-float-breakpoint)
-	{
-   		padding: 0;
-   	}
-}
 .navbar-default
 {
 	background-color: $color-main-blue;
 
+	.navbar-collapse
+	{
+		@media (max-width: $grid-float-breakpoint)
+		{
+	   		padding: 0;
+	   	}
+	}
 	.navbar-nav
 	{
 		margin: 0;
@@ -250,6 +250,10 @@ ul
 					background-color: $color-dark-blue;
 					color: white;
 				}
+				@media (max-width: $grid-float-breakpoint-max)
+				{
+					border-bottom: 1px solid transparentize(white, 0.8);
+				}
 			}
 		}
 		.dropdown
@@ -277,8 +281,12 @@ ul
 						&:hover,
 						&:focus
 						{
-							background-color: rgba(255, 255, 255, 0.1) !important;
+							background-color: transparentize(white, 0.8) !important;
 						}
+					}
+					@media (max-width: $grid-float-breakpoint-max)
+					{
+						border-bottom: 0;
 					}
 				}
 			}
