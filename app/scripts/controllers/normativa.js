@@ -8,7 +8,7 @@
  * Controller of the digestoApp
  */
 angular.module('digestoApp')
-  .controller('NormativaCtrl',['$scope','ServiciosDeBusqueda',function ($scope,ServiciosDeBusqueda) {
+  .controller('NormativaCtrl',['$scope','ServiciosDeBusqueda',"OrigenDatos",function($scope,ServiciosDeBusqueda,OrigenDatos) {
 
       var resultadosPorPagina = 10   ; 
       var paginas             = []   ;
@@ -22,19 +22,12 @@ angular.module('digestoApp')
       $scope.showResult          = false ;
 
 
-    function log(method,msg)
-      {
-        console.log('[NormativaCtrl]: '+method+' : '+msg);
-      }
-
-    function renombrarPropiedadTexto(resultados )
-      {
-          //modificar el atributo #texto por texto 
-          $(resultados).each(function(indice,elemento){
-            elemento.texto = elemento['#texto'];
-            delete elemento['#texto'];
-          });
-      }
+      //filtros ! 
+      $scope.categorias = [] ;
+      $scope.temas      = [] ;
+      $scope.fechas     = [] ;
+      $scope.filtrosActivos = [] ; 
+buscarDiccionarios();
 
     $scope.mostrarPagina = function (numeroDePagina)
       {
@@ -88,6 +81,10 @@ angular.module('digestoApp')
       		});
     	}; 
 
+    $scope.agregarfiltroCategoria = function (){
+      console.log("agregarfiltroCategoria llamado")
+    };
+
     function procesarResultados ( data )
         {
             //detener loader 
@@ -127,4 +124,45 @@ angular.module('digestoApp')
                   // mostrar mensaje de que no hay resultados 
                 }      
         }
+
+    function buscarDiccionarios()
+      {
+          OrigenDatos.getDiccionarioCategorias().then(function(data){
+             if (data.categorias !== undefined)
+                {
+                  $scope.categorias = data.categorias;
+                }
+          },function(err){});
+
+          $scope.temas = OrigenDatos.getDiccionarioTemas().then(function(data){
+             if (data.temas !== undefined)
+                {
+                  $scope.temas = data.temas;
+                }
+
+          },function(err){});
+
+          $scope.fechas = OrigenDatos.getFechasSancion().then(function(data){
+             if (data.fechas !== undefined)
+                {
+                  $scope.fechas = data.fechas;
+                }
+
+          },function(err){});
+      }
+
+    function log(method,msg)
+      {
+        console.log('[NormativaCtrl]: '+method+' : '+msg);
+      }
+
+    function renombrarPropiedadTexto(resultados )
+      {
+          //modificar el atributo #texto por texto 
+          $(resultados).each(function(indice,elemento){
+            elemento.texto = elemento['#texto'];
+            delete elemento['#texto'];
+          });
+      }
+
   }]);
