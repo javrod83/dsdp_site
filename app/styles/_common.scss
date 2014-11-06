@@ -9,9 +9,11 @@
 
 // Colores
 
-$color-main-blue: 			rgb(0,180,255);
-$color-dark-blue: 			rgb(0,146,194);
-$color-light-blue: 			rgb(60,206,240);
+$color-dark-blue: 			#007092;
+$color-blue:	 			#0092c2;
+$color-main-blue: 			#00b4e1;
+$color-light-blue: 			#3ccef0;
+$color-soft-blue: 			#6edcf5;
 
 $color-soft-gray:			#eee;
 $color-light-gray:			#cfcfcf;
@@ -19,22 +21,20 @@ $color-gray:				#999;
 $color-main-gray:			#555;
 $color-dark-gray:			#333;
 
-$color-light-white:			rgba(255,255,255,0.3);
+$color-violet:				#8d6caa;
+$color-light-violet:		#9f81b8;
 
-$color-violet:				rgb(141,108,170);
-$color-light-violet:		rgb(159,129,184);
+$color-red:					#dc5f50;
+$color-light-red:			#eb7869;
 
-$color-red:					rgb(220,95,80);
-$color-light-red:			rgb(235,120,105);
+$color-orange:				#ec9f48;
+$color-light-orange:		#f5be50;
 
-$color-orange:				rgb(236,159,72);
-$color-light-orange:		rgb(245,190,80);
+$color-green:				#95c240;
+$color-light-green:			#b4d155;
 
-$color-green:				rgb(149,194,64);
-$color-light-green:			rgb(180,209,85);
-
-$color-turquoise:			rgb(25,168,178);
-$color-light-turquoise:		rgb(67,190,198);
+$color-turquoise:			#19a8b2;
+$color-light-turquoise:		#43bec6;
 
 // Botones
 
@@ -178,6 +178,7 @@ ul
 	border-color: $color;
 }
 */
+/*
 .btn-default
 {
  	@include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
@@ -206,6 +207,7 @@ ul
 {
  	@include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
+*/
 .caret
 {
 	margin: 0 0 0 8px;
@@ -345,7 +347,7 @@ ul
 				&:focus,
 				&:active
 				{
-					background-color: transparentize($color-dark-blue, 0.5);
+					background-color: transparentize($color-blue, 0.5);
 					color: white;
 				}
 			}
@@ -354,13 +356,13 @@ ul
 		{
 			> a
 			{
-				background-color: $color-dark-blue !important;
+				background-color: $color-blue !important;
 				color: white !important;
 				
 				&:hover,
 				&:focus
 				{
-					background-color: $color-dark-blue;
+					background-color: $color-blue;
 					color: white;
 				}
 				@media (max-width: $grid-float-breakpoint-max)
@@ -373,14 +375,14 @@ ul
 		{
 			.dropdown-menu
 			{
-				background-color: $color-dark-blue;
+				background-color: $color-blue;
 				border: none;
 				box-shadow: none;
 				padding: 0;
 
 				li
 				{
-					border-bottom: 1px solid $color-light-white;
+					border-bottom: 1px solid transparentize(white, 0.8);
 
 					&:last-child
 					{
