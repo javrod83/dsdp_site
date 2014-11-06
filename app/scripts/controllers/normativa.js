@@ -24,10 +24,35 @@ angular.module('digestoApp')
 
       //filtros ! 
       $scope.categorias = [] ;
+       $scope.categoriasCampo = '' ;
       $scope.temas      = [] ;
       $scope.fechas     = [] ;
       $scope.filtrosActivos = [] ; 
-buscarDiccionarios();
+
+      buscarDiccionarios();
+
+
+
+    $scope.agregarfiltroCategoria = function (){
+      //console.log("agregarfiltroCategoria llamado")
+      $scope.filtrosActivos.push($scope.categoriaActual);
+    };
+
+    $scope.agregarfiltroTema = function (){
+      console.log("agregarfiltroTema llamado")
+      $scope.filtrosActivos.push($scope.temaActual);
+    };
+
+    $scope.agregarfiltroFechaDesde = function (){
+      console.log("agregarfiltroFechaDesde llamado")
+      $scope.filtrosActivos.push($scope.fechaDesdeActual);
+    };
+
+    $scope.agregarfiltroFechaHasta = function (){
+      console.log("agregarfiltroFechaHasta llamado")
+      $scope.filtrosActivos.push($scope.fechaHastaActual);
+    };
+
 
     $scope.mostrarPagina = function (numeroDePagina)
       {
@@ -44,6 +69,7 @@ buscarDiccionarios();
             if (data.length !== 0 )
                 {     
                   $scope.sugerencias = data.hit;   
+
                 }
             else
                 {      $scope.sugerencias = ['ninguna sugerencia disponible '];        }
@@ -81,9 +107,6 @@ buscarDiccionarios();
       		});
     	}; 
 
-    $scope.agregarfiltroCategoria = function (){
-      console.log("agregarfiltroCategoria llamado")
-    };
 
     function procesarResultados ( data )
         {
@@ -109,6 +132,7 @@ buscarDiccionarios();
                                     cotaMenor = ( i - 1 ) * resultadosPorPagina ; 
                                     cotaMayor =   Math.min(( cotaMenor + (resultadosPorPagina - 1 ) ),resultados.length-1)    ; 
                                     $scope.paginas[i]=resultados.slice(cotaMenor,cotaMayor) ;
+                                    
                                     $scope.numeroDePaginas.push(i);
                                 }
 
@@ -130,7 +154,8 @@ buscarDiccionarios();
           OrigenDatos.getDiccionarioCategorias().then(function(data){
              if (data.categorias !== undefined)
                 {
-                  $scope.categorias = data.categorias;
+                  $scope.categorias      = data.categorias;
+                  $scope.categoriasCampo = data.campo ; 
                 }
           },function(err){});
 

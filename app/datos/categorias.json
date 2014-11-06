@@ -1,4 +1,4 @@
-{
+{	"campo" : "text",
 	"categorias":[
 		{"nombre":"ADM – Administrativo","value":"ADM"},
 		{"nombre":"ACU – Cultura, Ciencia y Tecnología","value":"ACU"},
