@@ -1,0 +1,9 @@
+<div class="autocomplete-container dropdown">
+	<input type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" ng-model="textoBusqueda" ng-enter="buscarPorSugerencia()" ng-keyup="buscarSugerencia()"/>
+	<ul class= " autocomplete-sugestions-list" role="menu">
+	    <li ng-repeat="sugerencia in sugerencias" role="presentation" class="autocomplete-sugestion-item" >
+	    	<p ng-click="sugerenciaSeleccionada('{{sugerencia}}')" role="menuitem">{{sugerencia}}</p>
+	    </li>
+	</ul>
+</div>
+                

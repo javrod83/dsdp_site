@@ -5,12 +5,13 @@
 </div><!--/.heading-->
 <section id="normativa" class="container">
     <div class="row">
+
         <form role="form" id="normativa-search" class="col-md-9 col-xs-12 form-inline form-lg">
             <div class="form-group col-md-12 col-xs-12">
                 <div class="col-md-10 col-xs-9">
-                    <input type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" />
+                    <div data-autocomplete type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" ng-model="textoBusqueda"  ></div>
                 </div>
-                <button class="btn btn-warning btn-lg pull-right col-md-2 col-xs-3" type="submit" value="Buscar" >Buscar</button>
+                <button class="btn btn-warning btn-lg pull-right col-md-2 col-xs-3" type="submit" value="Buscar" ng-click="buscar()" >Buscar</button>
             </div>
         </form><!--/#normativa-search-->
     </div>
@@ -20,7 +21,10 @@
             <fieldset>
                 <legend class="title-secondary">Filtrar resultados</legend>
                 <section id="normativa-filters-tags" class="filters">
-                    <button class="tag filters-tags">Filtro categoría 1 <i class="fa fa-remove"></i></button>
+                    <button class="tag filters-tags" ng-repeat="filtro in filtros">Filtro categoría 1 <i class="fa fa-remove"></i></button>
+
+
+
                     <button class="tag filters-tags">Filtro categoría 2 <i class="fa fa-remove"></i></button>
                     <button class="tag filters-tags">Tema 1 <i class="fa fa-remove"></i></button>
                     <button class="tag filters-tags">Filtro años 1 <i class="fa fa-remove"></i></button>
@@ -30,77 +34,18 @@
                     <div class="row">
                         <div class="form-group col-md-12 col-xs-6">
                             <label for="filters-categorias" class="title-third">Categoría</label>
-                            <select class="form-control">
-                                <option value="0">Todas</option>
-                                <option value="1">ADM – Administrativo</option>
-                                <option value="2">ACU – Cultura, Ciencia y Tecnología</option>
-                                <option value="3">AED – Educación</option>
-                                <option value="4">ASA – Salud Pública</option>
-                                <option value="5">ASE – Seguridad</option>
-                                <option value="6">ASO – Acción y Desarrollo Social</option>
-                                <option value="7">B – Aduanero</option>
-                                <option value="8">C – Aeronáutico-Espacial</option>
-                                <option value="9">D – Bancario, Monetario y Financiero</option>
-                                <option value="10">E – Civil</option>
-                                <option value="11">F – Comercial</option>
-                                <option value="12">G – Comunitario</option>
-                                <option value="13">H – Constitucional</option>
-                                <option value="14">I – De la Comunicación</option>
-                                <option value="15">J – Diplomático y Consular</option>
-                                <option value="16">K – Económico</option>
-                                <option value="17">L – Impositivo</option>
-                                <option value="18">M – Industrial</option>
-                                <option value="19">N – Internacional Privado</option>
-                                <option value="20">O – Internacional Público</option>
-                                <option value="21">P – Laboral</option>
-                                <option value="22">Q – Medio Ambiente</option>
-                                <option value="23">R – Militar</option>
-                                <option value="24">S – Penal</option>
-                                <option value="25">T – Político</option>
-                                <option value="26">U – Procesal Civil y Comercial</option>
-                                <option value="27">V – Procesal Penal</option>
-                                <option value="28">W – Público Provincial y Municipal</option>
-                                <option value="29">X – Recursos Naturales</option>
-                                <option value="30">Y – Seguridad Social</option>
-                                <option value="31">Z – Transporte y Seguros</option>
+
+
+                            <select ng-model="categoriaActual" ng-options="categoria.nombre  for categoria in categorias" class="form-control"  ng-change="agregarfiltroCategoria()">
+                                <option value="" selected disabled>TODAS </option>
                             </select>
+                           
                         </div>
                         <div class="form-group col-md-12 col-xs-6">
                             <label for="filters-tema" class="title-third">Tema</label>
-                            <select class="form-control">
-                                <option value="0">Todos</option>
-                                <option value="1">Tema 1</option>
-                                <option value="2">Tema 2</option>
-                                <option value="3">Tema 3</option>
-                                <option value="4">Tema 4</option>
-                                <option value="5">Tema 5</option>
-                                <option value="6">Tema 6</option>
-                                <option value="7">Tema 7</option>
-                                <option value="8">Tema 8</option>
-                                <option value="9">Tema 9</option>
-                                <option value="10">Tema 10</option>
-                                <option value="11">Tema 11</option>
-                                <option value="12">Tema 12</option>
-                                <option value="13">Tema 13</option>
-                                <option value="14">Tema 14</option>
-                                <option value="15">Tema 15</option>
-                                <option value="16">Tema 16</option>
-                                <option value="17">Tema 17</option>
-                                <option value="18">Tema 18</option>
-                                <option value="19">Tema 19</option>
-                                <option value="20">Tema 20</option>
-                                <option value="21">Tema 21</option>
-                                <option value="22">Tema 22</option>
-                                <option value="23">Tema 23</option>
-                                <option value="24">Tema 24</option>
-                                <option value="25">Tema 25</option>
-                                <option value="26">Tema 26</option>
-                                <option value="27">Tema 27</option>
-                                <option value="28">Tema 28</option>
-                                <option value="29">Tema 29</option>
-                                <option value="30">Tema 30</option>
-                                <option value="31">Tema 31</option>
-                            </select>
+                             <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control" >
+                                  <option value="" selected disabled>TODOS </option>
+                             </select>
                         </div>
                     </div>
                     <div class="row">
@@ -117,31 +62,15 @@
                             <label for="filters-fecha-sancion" class="title-third">Fecha de sanción</label>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <select class="form-control">
-                                        <option value="0" disabled selected>Desde</option>
-                                        <option value="1">2014</option>
-                                        <option value="2">2013</option>
-                                        <option value="3">2012</option>
-                                        <option value="4">2011</option>
-                                        <option value="5">2010</option>
-                                        <option value="6">2009</option>
-                                        <option value="7">2008</option>
-                                        <option value="8">2007</option>
-                                        <option value="9">2006</option>
+                                   <select ng-model="fechaDesde" ng-options="fecha  for fecha in fechas" class="form-control" >
+                                         <option value="" selected disabled>Desde </option>
+                                        
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
-                                    <select class="form-control">
-                                        <option value="0" disabled selected>Hasta</option>
-                                        <option value="1">2014</option>
-                                        <option value="2">2013</option>
-                                        <option value="3">2012</option>
-                                        <option value="4">2011</option>
-                                        <option value="5">2010</option>
-                                        <option value="6">2009</option>
-                                        <option value="7">2008</option>
-                                        <option value="8">2007</option>
-                                        <option value="9">2006</option>
+                                    <select ng-model="fechaHasta" ng-options="fecha  for fecha in fechas" class="form-control" >
+                                        <option value="" disabled selected>Hasta</option>
+                                       
                                     </select>
                                 </div>
                             </div>
@@ -153,10 +82,11 @@
         </aside>
         <div class="col-md-9 col-xs-12 pull-left">
             <section id="normativa-main">
-                <div class="nav-path-header">
-                    <p class="text-p"><strong>20.789</strong> resultados para <strong>"trabajo infantil en escuelas públicas"</strong></p>
+                <div class="nav-path-header" ng-show="showResult">
+                    <p class="text-p"><strong>{{resultadosTotales}}</strong> resultados para <strong>"{{textoBusqueda}}"</strong></p>
                 </div>
                 <section id="normativa-main-list">
+
                     <ul class="list-group">
                         <li id="list-header" class="col-md-12">
                             <ul class="row">
@@ -175,303 +105,33 @@
                                 </div>
                            </ul>
                         </li>
-                        <li class="list-item col-md-12">
+                        <li class="list-item col-md-12" ng-repeat="respuesta in respuestas">
                             <ul class="row">
                                 <div class="col-md-7 pull-right">
                                     <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
+                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="{{respuesta.NumDJA.link}}" title="Descripción" class="text-bold">{{respuesta.Titulo}}</a></h2></li>
                                         <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
                                     </div>
                                 </div>
                                 <div class="col-md-5 pull-left">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
+                                        <li id="list-item-fecha" class="col-md-4">{{respuesta.FechaSanc.dia}}/{{respuesta.FechaSanc.mes}}/{{respuesta.FechaSanc.anio}}</li>
+                                        <li id="list-item-nro-norma" class="col-md-4">{{respuesta.AntesNorma}}</li>
+                                        <li id="list-item-codigo"class="col-md-4">{{respuesta.NumDJA.text}}</li>
                                     </div>
                                 </div>
                            </ul>
                         </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                        <li class="list-item col-md-12">
-                            <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="#" title="Descripción" class="text-bold">Sistema Integrado Previsional Argentino - Régimen de Regularización</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
-                                </div>
-                                <div class="col-md-5 pull-left">
-                                    <div class="row">
-                                        <li id="list-item-fecha" class="col-md-4">10/03/1947</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">13.645</li>
-                                        <li id="list-item-codigo"class="col-md-4">ASA-963</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
+
                     </ul>
+
                 </section>
-                <div class="nav-path-footer">
-                    <ul class="pagination pull-right">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
-                </div><!--/.nav-path-footer-->
+
+                <div  ng-include src='"partials/paginador.html"'></div>
+               
+                
             </section>
         </div>
     </div>
 </section><!--/#normativa-->
-
-<!--
-<section id="page">
-    <div class="container">
-       
-        <div class="site-content col-md-12">
-            <input class="input-search-indice wow fadeInUp deletable" type="text" name="search" autofocus="autofocus" placeholder="Buscar normas sobre..." />
-
-            
-            <ul id="accordion" >
-
-            </ul>
-            <ul id="normas" >
-
-            </ul>  
-            <ul id="resultados" >
-
-            </ul>                         
-        </div>
-        <script>
-           
-                    
-             $("#normas").html(' <img class="loader" src="../wp-content/themes/digesto/assets/images/loader.gif" alt="">');   
-             $( document ).ready(
-                //http://dsdp.hcdn.gob.ar/digesto/json.txt
-                //http://sparl-desa.hcdn.gob.ar:8080/exist/rest/digesto/index-json.xql
-                                
-
-                $.getJSON( url[state], function( data ) {
-                    var ramas = data.indiceDJA.Rama;
-
-
-                  
-                    lastChild = null;
-                    
-                    indice = [];
-                    normas = [];
-                    var i = 0;
-                    $.each( ramas, function( key, val ) {
-                        var subItems = [];
-                        
-                         
-                            val.Norma.filter(function (el) {
-                                return el.Orden !== "#";
-                            });
-                        
-
-                        $.each(val.Norma, function( k, v ) {
-
-                            if (v.Orden !== '#')
-                                if (state == "test" || state =="indice")
-                                    {
-                                        subItems.push("<li class='row'><div class='col-md-2 col-sm-2'>" + v.AntesNorma + "</div><div class='col-md-2 col-sm-2'>" + v.NumDJA.$ + "</div><div class='col-md-7 col-sm-7'><p target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + v.NumDJA.link.replace('\\','/') + "'>" + v.Titulo + "</p></div><div class='col-md-1 col-sm-1'><a class='btn-sm btn-warning pull-right' target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + v.NumDJA.link.replace('\\','/') + "'>Ver</a></div></li>");
-                                    }
-                                else{
-                                    subItems.push("<li class='row'><div class='col-md-2 col-sm-2'>" + v.NumDJA.$ + "</div><div class='col-md-9 col-sm-9'><p target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + v.NumDJA.link + "'>" + v.Titulo + "</p></div><div class='col-md-1 col-sm-1'><a class='btn-sm btn-warning pull-right' target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + v.NumDJA.link + "'>Ver</a></div></li>");
-                                }
-
-                        });
-
-                        var item = '';
-
-                        if (i == 0) {
-                            if (state == "test" || state =="indice") item = "<li><a data-toggle='collapse' data-parent='#accordion' href='#collapse" + key + "' class='indice'>" + val.Codigo + "</a></li>";
-                            else  item = "<li><a data-toggle='collapse' data-parent='#accordion' href='#collapse" + key + "' class='indice'>" + val.Titulo + "</a></li>";
-                            normas.push("<ul id='collapse" + key + "' class='collapse in'>" + '<div class="row hidden-xs" id=""><div class="col-md-2 col-sm-2"><b>N &deg; Norma</b></div><div class="col-sm-2 col-md-2"><b>Código</b></div><div class="col-sm-8 col-md-8"><b>Título</b></div></div>' + subItems.join( "" ) + "</ul>");
-                            lastChild = "#collapse" + key;
-                        }
-                        else {
-                            normas.push("<ul id='collapse" + key + "' class='collapse'>" + '<div class="row hidden-xs" id=""><div class="col-md-2 col-sm-2"><b>N &deg; Norma</b></div><div class="col-md-2 col-sm-2"><b>Código</b></div><div class="col-md-8 col-sm-8"><b>Título</b></div></div>' + subItems.join( "" ) + "</ul>");
-                             if (state == "test"  || state =="indice")item = "<li><a data-toggle='collapse' data-parent='#accordion' href='#collapse" + key + "' class='indice collapsed'>" + val.Codigo + "</a></li>";
-                             else item = "<li><a data-toggle='collapse' data-parent='#accordion' href='#collapse" + key + "' class='indice collapsed'>" + val.Titulo + "</a></li>";
-                        }
-                        indice.push(item);
-                        i++;
-                    });
-                    
-                    $('input.deletable').wrap('<span class="deleteicon wow fadeInUp" />').after($('<span/>').click(function() {
-                      $(this).prev('input').val('').focus();
-                      $(this).prev('input').keyup();
-                    }));
-
-                    $('input[name=search]').keyup(function () {
-                        var elements = [];
-                        items = [];
-
-                        if ($('input[name=search]').val() && $('input[name=search]').val().length >= 3) {
-
-                           
-                            $("#normas").html(' <img class="loader" src="../wp-content/themes/digesto/assets/images/loader.gif" alt="">');   
-                
-                            var regex = new RegExp(getRegex($('input[name=search]').val().toString().toLowerCase()));
-                            $.each( ramas, function( key, val ) {
-                                
-                                val.Norma.filter(function (el) {
-                                    return el.Orden !== "#";
-                                });
-                                
-                                $.each(val.Norma, function( k, v ) {
-                                    //console.log(v);
-                                    //regex.test(v.AntesNorma.toString().toLowerCase()
-                                    if (v.Orden !== '#')
-                                        //if (regex.test(getRegex(v.Titulo.toString().toLowerCase())) || regex.test(getRegex(v.NumDJA.$.toString().toLowerCase())) || regex.test(getRegex(v.AntesNorma.toString().toLowerCase())) ) {
-                                        if (regex.test((v.Titulo.toString().toLowerCase())) || regex.test((v.NumDJA.$.toString().toLowerCase())) || regex.test((v.AntesNorma.toString().toLowerCase())) ) {
-                                            items.push("<div class='row'><div class='col-md-2 col-sm-2'>" + v.AntesNorma + "</div><div class='col-md-2 col-sm-2'>" + v.NumDJA.$ + "</div><div class='col-md-7 col-sm-7'><p target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + (toString(v.NumDJA.link).replace('\\','/')) + "'>" + v.Titulo + "</p></div><div class='col-md-1 col-sm-1'><a class='btn-sm btn-warning pull-right' target='_blank' href='http://dsdp.hcdn.gob.ar/digesto/docs/" + (toString(v.NumDJA.link).replace('\\','/')) + "'>Ver</a></div></div>");
-                                        }
-                                });
-                            });                
-
-                            if (items.length > 0) {
-                            
-                                $("#resultados").html('<div class="row hidden-xs" id=""><div class="col-md-2 col-sm-2"><b>N &deg; Norma</b></div><div class="col-md-2 col-sm-2"><b>Código</b></div><div class="col-md-8 col-sm-8"><b>Título</b></div></div>' + items.join( "" ));
-                        
-                                $("#accordion").html("");
-                                $("#normas").html("");
-                            } else {
-                                $("#accordion").html("");
-                                $("#normas").html("");
-                                $("#resultados").html("<p class='italic'>No se encontraron resultados</p>");
-                            }
-                        } else {
-
-                                lastChild = "#collapse0";
-                                $("#accordion").html('<h4>Filtre por las normas</h4>' + indice.join( "" ));
-                                $("#normas").html(normas.join( "" ));
-                                $("#resultados").html("");
-
-                                $('.indice').click(function () {
-                                    if (lastChild && lastChild != $(this).attr('href')) {
-                                        $(lastChild).addClass('collapse');
-                                        $(lastChild).removeClass('in');
-                                    }
-                                    lastChild = $(this).attr('href');
-
-                                });
-
-
-                        }
-
-                    });
-
-                    $("#accordion").html('<h4>Filtre por las normas</h4>' + indice.join( "" ));
-                    $("#accordion").addClass('animated fadeInUp');
-                    $("#normas").html(normas.join( "" ));         
-                    $("#normas").addClass('animated fadeInUp');         
-                    
-                    $('.indice').click(function () {
-                        if (lastChild  && lastChild != $(this).attr('href')) {
-                            $(lastChild).addClass('collapse');
-                            $(lastChild).removeClass('in');
-                        }
-                        lastChild = $(this).attr('href');
-                    });
-
-                })
-            );
-        </script>
-
-</div>
-
-</section>
-
-
--->
+\

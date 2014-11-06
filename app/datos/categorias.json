@@ -1,0 +1,55 @@
+{
+	"categorias":[
+		{"nombre":"ADM – Administrativo","value":"ADM"},
+		{"nombre":"ACU – Cultura, Ciencia y Tecnología","value":"ACU"},
+		{"nombre":"AED – Educación","value":"AED"},
+		{"nombre":"ASA – Salud Pública","value":"ASA"},
+		{"nombre":"ASE – Seguridad","value":"ASE"},
+		{"nombre":"ASO – Acción y Desarrollo Social","value":"ASO"},
+		{"nombre":"B   – Aduanero","value":"B"},
+		{"nombre":"C   – Aeronáutico-Espacial","value":"C"},
+		{"nombre":"D   – Bancario, Monetario y Financiero ","value":"D"},
+		{"nombre":"E   – Civil ","value":"E"},
+		{"nombre":"F   – Comercial","value":"F"},
+		{"nombre":"G   – Comunitario","value":"G"},
+		{"nombre":"H   – Constitucional","value":"H"},
+		{"nombre":"I   – De la Comunicación","value":"I"},
+		{"nombre":"J   – Diplomático y Consular","value":"J"},
+		{"nombre":"  K – Económico ","value":"K"},
+		{"nombre":"  L – Impositivo ","value":"L"},
+		{"nombre":"  M – Industrial ","value":"M"},
+		{"nombre":"  N – Internacional Privado ","value":"N"},
+		{"nombre":"  O – Internacional Público ","value":"O"},
+		{"nombre":"  P – Laboral","value":"P"},
+		{"nombre":"  Q – Medio Ambiente","value":"Q"},
+		{"nombre":"  R – Militar","value":"R"},
+		{"nombre":"  S – Penal","value":"S"},
+		{"nombre":"  T – Político","value":"T"},
+		{"nombre":"  U – Procesal Civil y Comercial ","value":"U"},
+		{"nombre":"  V – Procesal Penal ","value":"V"},
+		{"nombre":"  W – Público Provincial y Municipal ","value":"W"},
+		{"nombre":"  X – Recursos Naturales","value":"X"},
+		{"nombre":"  Y – Seguridad Social","value":"Y"},
+		{"nombre":"  Z – Transporte y Seguros","value":"Z"}
+	] 
+}
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+ 
+ 
+ 

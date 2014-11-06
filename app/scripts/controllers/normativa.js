@@ -8,131 +8,161 @@
  * Controller of the digestoApp
  */
 angular.module('digestoApp')
-  .controller('NormativaCtrl', function ($scope) {
+  .controller('NormativaCtrl',['$scope','ServiciosDeBusqueda',"OrigenDatos",function($scope,ServiciosDeBusqueda,OrigenDatos) {
+
+      var resultadosPorPagina = 10   ; 
+      var paginas             = []   ;
+      
+      $scope.resultadosTotales   =    '' ;
+      $scope.textoBusqueda       =    '' ; 
+      $scope.sugerencias         =   [ ] ;
+      $scope.respuestas          =   [ ] ;
+      $scope.numeroDePaginas     =   [ ] ; 
+      $scope.preloader           = false ; 
+      $scope.showResult          = false ;
 
 
+      //filtros ! 
+      $scope.categorias = [] ;
+      $scope.temas      = [] ;
+      $scope.fechas     = [] ;
+      $scope.filtrosActivos = [] ; 
+buscarDiccionarios();
 
-     var state = "indice"  ;  // estados  "test" ,'indice' y "mock"
+    $scope.mostrarPagina = function (numeroDePagina)
+      {
+        log('mostrarPagina','change to page '+numeroDePagina);
+        $scope.respuestas = $scope.paginas[numeroDePagina]; 
+      };
+    
+    $scope.buscarSugerencias = function ()
+      {
+        log('buscarSugerencias','buscando sugerencias'); 
+        $scope.sugerencias = ['buscando sugerencias ... '];
+        ServiciosDeBusqueda.getSugerenciasBusqueda($scope.textoBusqueda).then(function(data){
+            log('buscarSugerencias','nuevas sugerencias '); 
+            if (data.length !== 0 )
+                {     
+                  $scope.sugerencias = data.hit;   
+                }
+            else
+                {      $scope.sugerencias = ['ninguna sugerencia disponible '];        }
+          
+        },function(err){
+          //eror en la bsuqueda
+          $scope.preloader = false;
+          $scope.sugerencias = ['ocurrio un error ,intente nuevamente en unos momentos '];  
+          log('buscarSugerencias','error al buscar  sugerencias '); 
+        });
+      };
 
-    var url = {
-        mock : "http://dsdp.hcdn.gob.ar/digesto/json.txt",
-        test : "http://sparl-desa.hcdn.gob.ar:8080/exist/rest/digesto/index-json.xql",
-      indice : "http://dsdp.hcdn.gob.ar/digesto/indice.txt",
+    $scope.sugerenciaSeleccionada = function(sugerencia)
+      {
+          log('sugerenciaSeleccionada','iniciando'); 
+          $scope.textoBusqueda = sugerencia ;
+          $scope.buscar() ; 
+      }; 
 
+    $scope.buscar = function()
+    	{
+          log('buscar','buscando '+$scope.textoBusqueda); 
+      		$scope.preloader = true;
+          $scope.sugerencias = [] ; 
+          $scope.resultadosTotales = '' ; 
+
+      		ServiciosDeBusqueda.getNormaPorQuery($scope.textoBusqueda).then(function(data){
+      		    //busqueda exitosa 
+        			$scope.preloader = false;
+              procesarResultados(data) ; 
+              //log('buscar','se encontraron '+$scope.respuestas.length); 
+      		},function(err){
+      			//eror en la bsuqueda
+      			$scope.preloader = false;
+      		});
+    	}; 
+
+    $scope.agregarfiltroCategoria = function (){
+      console.log("agregarfiltroCategoria llamado")
     };
 
-
-    var vocales = {
-        a : '[aàáâãå]',
-        e : '[eèéêë]',
-        i : '[iìíîï]',
-        o : '[oòóôö]',
-        u : '[uùúûü]'
-    }
-
-    function replaceAll(str,find, replace) {
-          return str.replace(new RegExp(find, 'g'), replace);
-        }
-
-    function getRegex(str)
+    function procesarResultados ( data )
         {
-            var out = str ;
-            for(var index in vocales) 
+            //detener loader 
+            $scope.showResult = true ;
+            if(data.length !== 0 )
                 {
-                    out = replaceAll(out,index,vocales[index]);
-                      
+                    var resultados = data[0].Norma;
+                    renombrarPropiedadTexto(resultados);
+                    $scope.resultadosTotales = resultados.length ; 
+
+                    //paginar resultados ? ? 
+                    if (resultados.length > resultadosPorPagina)
+                        {
+                            $scope.paginas         = [] ; 
+                            $scope.numeroDePaginas = [] ; 
+
+                            var cotaMenor = 0 ; 
+                            var cotaMayor = 0 ; 
+
+                            for (var i = 1; i < (Math.ceil(resultados.length/resultadosPorPagina)); i++)
+                                {
+                                    cotaMenor = ( i - 1 ) * resultadosPorPagina ; 
+                                    cotaMayor =   Math.min(( cotaMenor + (resultadosPorPagina - 1 ) ),resultados.length-1)    ; 
+                                    $scope.paginas[i]=resultados.slice(cotaMenor,cotaMayor) ;
+                                    $scope.numeroDePaginas.push(i);
+                                }
+
+                            $scope.respuestas =  $scope.paginas[1];
+                        }
+                    else
+                        {
+                            $scope.respuestas = resultados;
+                        }
                 }
-                 
-            return out ;
+            else
+                {
+                  // mostrar mensaje de que no hay resultados 
+                }      
         }
 
+    function buscarDiccionarios()
+      {
+          OrigenDatos.getDiccionarioCategorias().then(function(data){
+             if (data.categorias !== undefined)
+                {
+                  $scope.categorias = data.categorias;
+                }
+          },function(err){});
 
+          $scope.temas = OrigenDatos.getDiccionarioTemas().then(function(data){
+             if (data.temas !== undefined)
+                {
+                  $scope.temas = data.temas;
+                }
 
-    $scope.resultado = "NOTHING TO SHOW YET ";
-    var xhttp = '' ;
-    
-        function loadXMLDoc(filename)
-            {
-                
-                if (window.ActiveXObject)
-                    {
-                        xhttp = new ActiveXObject("Msxml2.XMLHTTP");
-                    }
-                else 
-                    {
-                        xhttp = new XMLHttpRequest();
-                    }
+          },function(err){});
 
-                xhttp.open("GET", filename, false);
-                try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
-                xhttp.send("");
-                return xhttp.responseXML;
-            }
+          $scope.fechas = OrigenDatos.getFechasSancion().then(function(data){
+             if (data.fechas !== undefined)
+                {
+                  $scope.fechas = data.fechas;
+                }
 
-        $scope.displayResult =     function ()
-            {
-                    console.log('displayResult');
-                    $scope.resultado = "LOADING " ;
-                    // var xml = loadXMLDoc("xml/ley22990.xml");
-                    // var xsl = loadXMLDoc("scripts/xsl/norma_html_01.xsl");
-                    // // code for IE
-                    // if (window.ActiveXObject || xhttp.responseType == "msxml-document")
-                    //   {
-                    //     console.log('displayResult');
-                    //   ex = xml.transformNode(xsl);
-                    //   document.getElementById("example").innerHTML = ex;
-                    //   }
-                    // // code for Chrome, Firefox, Opera, etc.
-                    // else if (document.implementation && document.implementation.createDocument)
-                    //   {
-                    //      console.log('displayResult');
-                    //       var xsltProcessor = new XSLTProcessor();
-                    //       xsltProcessor.importStylesheet(xsl);
-                    //       console.log(xsltProcessor.transformToFragment(xml, document));
-                    //       document.getElementById("example").appendChild( xsltProcessor.transformToFragment(xml, document));
-                    //   }
+          },function(err){});
+      }
 
-                    transformOutput("xml/ley22990.xml","scripts/xsl/norma_html_01.xsl");
-            }
+    function log(method,msg)
+      {
+        console.log('[NormativaCtrl]: '+method+' : '+msg);
+      }
 
+    function renombrarPropiedadTexto(resultados )
+      {
+          //modificar el atributo #texto por texto 
+          $(resultados).each(function(indice,elemento){
+            elemento.texto = elemento['#texto'];
+            delete elemento['#texto'];
+          });
+      }
 
-
-
-function loadXMLDocument (url) { 
-var httpRequest = new XMLHttpRequest(); 
-httpRequest.open('GET', url, false); 
-httpRequest.send(null); 
-
-return httpRequest.responseXML; 
-} 
-
-function createXMLDocument (rootName) { 
-var xmlDocument = document.implementation.createDocument('', rootName, null); 
-return xmlDocument; 
-} 
-
-
-function transformOutput(xmlinput, xslinput, parameternames, parameters)
-    { 
-        var xmlDocument    = loadXMLDocument(xmlinput); 
-        var xslDocument    = loadXMLDocument(xslinput); 
-        var resultDocument = createXMLDocument('whatever'); 
-        var xsltProcessor  = new XSLTProcessor(); 
-
-        if (xsltProcessor.transformDocument)
-            { 
-                xsltProcessor.transformDocument(xmlDocument, xslDocument, resultDocument, null); 
-
-                var s = new XMLSerializer(); 
-                var str = s.serializeToString(resultDocument); 
-
-                document.open(); 
-                document.write(str); 
-                document.close();
-                $scope.resultado = str; 
-            } 
-    }
-
-
-
-  });
+  }]);
