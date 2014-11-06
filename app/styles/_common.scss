@@ -9,15 +9,26 @@
 
 // Colores
 
-$color-main-blue: 			rgba(73,171,222,1);
-$color-dark-blue: 			rgba(59,139,181,1);
-$color-light-blue: 			rgba(79,202,248,1);
+$color-main-blue: 			rgb(73,171,222);
+$color-dark-blue: 			rgb(59,139,181);
+$color-light-blue: 			rgb(79,202,248);
 $color-soft-gray:			#eee;
 $color-light-gray:			#cfcfcf;
 $color-gray:				#999;
 $color-main-gray:			#555;
 $color-dark-gray:			#333;
 $color-light-white:			rgba(255,255,255,0.3);
+$color-violet:				rgb(141,108,170);
+$color-light-violet:		rgb(159,129,184);
+$color-red:					rgb(220,95,80);
+$color-light-red:			rgb(235,120,105);
+$color-orange:				rgb(236,159,72);
+$color-light-orange:		rgb(245,190,80);
+$color-green:				rgb(149,194,64);
+$color-light-green:			rgb(180,209,85);
+$color-turquoise:			rgb(25,168,178);
+$color-light-turquoise:		rgb(67,190,198);
+
 
 // Nav
 
@@ -102,11 +113,16 @@ ul
 {
 	margin: 0 0 0 8px;
 }
+.ellipsis
+{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 .filters-tags
 {
 	background-color: $color-gray;
 	color: white;
-	font-weight: 700;
+	font-size: $font-size-small;
 	position: relative;
 
 	.fa-remove
