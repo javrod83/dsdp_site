@@ -21,11 +21,11 @@
             <fieldset>
                 <legend class="title-secondary">Filtrar resultados</legend>
                 <section id="normativa-filters-tags" class="filters">
-                    <button class="tag filters-tags" ng-repeat="filtro in filtrosActivos">{{filtro.nombre}} <i class="fa fa-remove"></i></button>
+                    <button class="tag filters-tags" ng-repeat="filter in activeFilters">{{filter.name}} <i class="fa fa-remove"></i></button>
             
 
 
-                    <a href="#" title="Mostrar todos" ng-show="filtrosActivos.length > 0 " class="show-all">mostrar todos (+20)</a>
+                    <a href="#" title="Mostrar todos" ng-show="activeFilters.length > 0 " class="show-all">mostrar todos (+20)</a>
                 </section><!--/#normativa-filters-tags-->
                 <div>
                     <div class="row">
@@ -33,7 +33,7 @@
                             <label for="filters-categorias" class="title-third">Categoría</label>
 
 
-                            <select ng-model="categoriaActual" ng-options="categoria.nombre  for categoria in categorias" class="form-control"  ng-change="agregarfiltroCategoria()">
+                            <select ng-model="currentCategory" ng-options="category.name  for category in categories" class="form-control"  ng-change="agregarfiltroCategoria()">
                                 <option value="" selected disabled>TODAS </option>
                             </select>
                            
@@ -80,7 +80,7 @@
         <div class="col-md-9 col-xs-12 pull-left">
             <section id="normativa-main">
                 <div class="nav-path-header" ng-show="showResult">
-                    <p class="text-p"><strong>{{resultadosTotales}}</strong> resultados para <strong>"{{textoBusqueda}}"</strong></p>
+                    <p class="text-p"><strong>{{resultadosTotales}}</strong> resultados para <strong>"{{ultimoTextoBusqueda}}"</strong></p>
                 </div>
                 <section id="normativa-main-list">
 

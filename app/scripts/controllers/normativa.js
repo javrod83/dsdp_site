@@ -8,13 +8,14 @@
  * Controller of the digestoApp
  */
 angular.module('digestoApp')
-  .controller('NormativaCtrl',['$scope','ServiciosDeBusqueda',"OrigenDatos",function($scope,ServiciosDeBusqueda,OrigenDatos) {
+  .controller('NormativaCtrl',['$scope','ServiciosDeBusqueda',"OrigenDatos","FilterManager",function($scope,ServiciosDeBusqueda,OrigenDatos,FilterManager) {
 
-      var resultadosPorPagina = 10   ; 
+      var resultsPerPage = 10   ; 
       var paginas             = []   ;
       
       $scope.resultadosTotales   =    '' ;
       $scope.textoBusqueda       =    '' ; 
+      $scope.ultimoTextoBusqueda =    '' ;
       $scope.sugerencias         =   [ ] ;
       $scope.respuestas          =   [ ] ;
       $scope.numeroDePaginas     =   [ ] ; 
@@ -23,11 +24,11 @@ angular.module('digestoApp')
 
 
       //filtros ! 
-      $scope.categorias = [] ;
-       $scope.categoriasCampo = '' ;
+      $scope.categories = [] ;
+      $scope.categoriasCampo = '' ;
       $scope.temas      = [] ;
       $scope.fechas     = [] ;
-      $scope.filtrosActivos = [] ; 
+      $scope.activeFilters = FilterManager.filter; 
 
       buscarDiccionarios();
 
@@ -35,29 +36,34 @@ angular.module('digestoApp')
 
     $scope.agregarfiltroCategoria = function (){
       //console.log("agregarfiltroCategoria llamado")
-      $scope.filtrosActivos.push($scope.categoriaActual);
+      $scope.activeFilters.push($scope.currentCategory);
+          FilterManager.add ({
+            'name'  : $scope.currentCategory.name,
+            'value' : $scope.currentCategory.value,
+            action  : function (element){ return element[this.field] == this.value ;  }
+          });
     };
 
     $scope.agregarfiltroTema = function (){
-      console.log("agregarfiltroTema llamado")
-      $scope.filtrosActivos.push($scope.temaActual);
+     // console.log("agregarfiltroTema llamado")
+     // $scope.activeFilters.push($scope.temaActual);
     };
 
     $scope.agregarfiltroFechaDesde = function (){
       console.log("agregarfiltroFechaDesde llamado")
-      $scope.filtrosActivos.push($scope.fechaDesdeActual);
+      $scope.activeFilters.push($scope.fechaDesdeActual);
     };
 
     $scope.agregarfiltroFechaHasta = function (){
       console.log("agregarfiltroFechaHasta llamado")
-      $scope.filtrosActivos.push($scope.fechaHastaActual);
+      $scope.activeFilters.push($scope.fechaHastaActual);
     };
 
 
     $scope.mostrarPagina = function (numeroDePagina)
       {
         log('mostrarPagina','change to page '+numeroDePagina);
-        $scope.respuestas = $scope.paginas[numeroDePagina]; 
+        $scope.respuestas = $scope.pages[numeroDePagina]; 
       };
     
     $scope.buscarSugerencias = function ()
@@ -92,6 +98,7 @@ angular.module('digestoApp')
     $scope.buscar = function()
     	{
           log('buscar','buscando '+$scope.textoBusqueda); 
+          $scope.ultimoTextoBusqueda = $scope.textoBusqueda;
       		$scope.preloader = true;
           $scope.sugerencias = [] ; 
           $scope.resultadosTotales = '' ; 
@@ -114,34 +121,11 @@ angular.module('digestoApp')
             $scope.showResult = true ;
             if(data.length !== 0 )
                 {
-                    var resultados = data[0].Norma;
-                    renombrarPropiedadTexto(resultados);
-                    $scope.resultadosTotales = resultados.length ; 
-
-                    //paginar resultados ? ? 
-                    if (resultados.length > resultadosPorPagina)
-                        {
-                            $scope.paginas         = [] ; 
-                            $scope.numeroDePaginas = [] ; 
-
-                            var cotaMenor = 0 ; 
-                            var cotaMayor = 0 ; 
-
-                            for (var i = 1; i < (Math.ceil(resultados.length/resultadosPorPagina)); i++)
-                                {
-                                    cotaMenor = ( i - 1 ) * resultadosPorPagina ; 
-                                    cotaMayor =   Math.min(( cotaMenor + (resultadosPorPagina - 1 ) ),resultados.length-1)    ; 
-                                    $scope.paginas[i]=resultados.slice(cotaMenor,cotaMayor) ;
-                                    
-                                    $scope.numeroDePaginas.push(i);
-                                }
-
-                            $scope.respuestas =  $scope.paginas[1];
-                        }
-                    else
-                        {
-                            $scope.respuestas = resultados;
-                        }
+                    var results =  data[0].Norma;
+                    renameTextProperties(results);
+                    $scope.resultadosTotales = results.length ; 
+                    paginate(results);
+                    
                 }
             else
                 {
@@ -149,13 +133,38 @@ angular.module('digestoApp')
                 }      
         }
 
+   function paginate(results)
+    {
+        //paginar resultados ? ? 
+        if (results.length > resultsPerPage)
+            {
+                $scope.pages         = [] ; 
+                $scope.numeroDePaginas = [] ; 
+
+                var cotaMenor = 0 ; 
+                var cotaMayor = 0 ; 
+
+                for (var i = 1; i < (Math.ceil(resultados.length/resultsPerPage)); i++)
+                    {
+                        cotaMenor = ( i - 1 ) * resultsPerPage ; 
+                        cotaMayor =   Math.min(( cotaMenor + (resultsPerPage - 1 ) ),resultados.length-1)    ; 
+                        $scope.pages[i]=resultados.slice(cotaMenor,cotaMayor) ;
+                        $scope.numeroDePaginas.push(i);
+                    }
+
+                $scope.respuestas =  $scope.pages[1];
+            }
+        else
+            { $scope.respuestas = resultados; }
+    }
+
     function buscarDiccionarios()
       {
           OrigenDatos.getDiccionarioCategorias().then(function(data){
-             if (data.categorias !== undefined)
+             if (data.categories !== undefined)
                 {
-                  $scope.categorias      = data.categorias;
-                  $scope.categoriasCampo = data.campo ; 
+                  $scope.categories      = data.categories;
+                  $scope.categoriasCampo = data.field ; 
                 }
           },function(err){});
 
@@ -181,7 +190,7 @@ angular.module('digestoApp')
         console.log('[NormativaCtrl]: '+method+' : '+msg);
       }
 
-    function renombrarPropiedadTexto(resultados )
+    function renameTextProperties(resultados )
       {
           //modificar el atributo #texto por texto 
           $(resultados).each(function(indice,elemento){
