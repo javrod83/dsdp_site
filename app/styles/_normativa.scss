@@ -9,15 +9,23 @@
 
 #normativa-filters
 {
-	margin: 8px 0 0 0;
+	margin: 40px 0 0 0;
 
 	form
 	{
+		margin: 0;
+
 		legend
 		{
-			border-bottom: 1px solid $color-gray;
-			padding: 0 0 5px 0;
-			margin: 0 0 30px 0;
+			border-bottom: 1px solid $color-main-gray;
+			color: $color-main-gray !important;
+			line-height: 1.2;
+			margin: 30px 0;
+			padding: 0 0 17px 0;
+		}
+		.title-fourth
+		{
+			margin: 0 0 10px 0;
 		}
 	}
 	#normativa-filters-tags
@@ -32,9 +40,10 @@
 		border: 0;
 		border-radius: 0;
 		box-shadow: none;
-		color: $color-gray;
-		font-size: $font-size-large;
+		color: $color-dark-gray;
+		font-size: $f-font-size-large;
 		font-weight: 400;
+		line-height: 1.5;
 		min-height: 40px;
 		padding: 0;
 		position: relative;
@@ -44,27 +53,28 @@
 	.form-group
 	{
 		border-bottom: 2px solid $color-light-gray;
+		line-height: 1.5;
 		padding: 0 0 5px 0;
 	}
 	::-webkit-input-placeholder
 	{
 		color: $color-light-gray;
-		font-size: $font-size-large !important;
+		font-size: $f-font-size-large !important;
 	}
 	:-moz-placeholder
 	{
 		color: $color-light-gray;
-		font-size: $font-size-large !important;
+		font-size: $f-font-size-large !important;
 	}
 	::-moz-placeholder
 	{
 		color: $color-light-gray;
-		font-size: $font-size-large !important;
+		font-size: $f-font-size-large !important;
 	}
 	:-ms-input-placeholder
 	{
 		color: $color-light-gray;
-		font-size: $font-size-large !important;
+		font-size: $f-font-size-large !important;
 	}
 }
 
@@ -79,9 +89,7 @@
 	}
 	#list-header
 	{
-		background-color: $color-soft-gray;
-		border-top: 1px solid $color-light-gray;
-		border-bottom: 1px solid $color-light-gray;
+		border-bottom: 1px solid $color-dark-gray;
 
 		ul
 		{
@@ -89,7 +97,7 @@
 			{
 				a
 				{
-					color: $color-main-gray;
+					color: $color-dark-gray;
 					font-weight: 600 !important;
 				}
 			}

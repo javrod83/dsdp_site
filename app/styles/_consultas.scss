@@ -10,19 +10,19 @@
 {
 	#file-upload
 	{
-		margin: 20px 0 0 0;
+		margin: 53px 0 0 0;
 
 		p
 		{
-			color: $color-gray;
+			color: $color-main-gray;
 			font-style: italic;
 			margin: 8px 0 0 0;
 		}
-		.progress
-		{
-			margin: 20px 0;
-		}
 	}
+	.progress
+		{
+			margin: 15px 0;
+		}
 	.text-note
 	{
 		color: $color-gray;
