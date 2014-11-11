@@ -5,7 +5,6 @@
 </div><!--/.heading-->
 <section id="normativa" class="container">
     <div class="row">
-
         <form role="form" id="normativa-search" class="col-md-9 col-xs-12 form-inline form-lg">
             <div class="form-group col-md-12 col-xs-12">
                 <div class="col-md-10 col-xs-9">
@@ -19,12 +18,9 @@
         <aside id="normativa-filters" class="col-md-3 col-xs-12 pull-right">
             <form role="form" id="normativa-filters" class="form-base">
             <fieldset>
-                <legend class="title-secondary">Filtrar resultados</legend>
+                <legend class="title-third text-bold">Filtrar resultados</legend>
                 <section id="normativa-filters-tags" class="filters">
                     <button class="tag filters-tags" ng-repeat="filtro in filtros">Filtro categoría 1 <i class="fa fa-remove"></i></button>
-
-
-
                     <button class="tag filters-tags">Filtro categoría 2 <i class="fa fa-remove"></i></button>
                     <button class="tag filters-tags">Tema 1 <i class="fa fa-remove"></i></button>
                     <button class="tag filters-tags">Filtro años 1 <i class="fa fa-remove"></i></button>
@@ -33,24 +29,21 @@
                 <div>
                     <div class="row">
                         <div class="form-group col-md-12 col-xs-6">
-                            <label for="filters-categorias" class="title-third">Categoría</label>
-
-
+                            <label for="filters-categorias" class="title-fourth">Categoría</label>
                             <select ng-model="categoriaActual" ng-options="categoria.nombre  for categoria in categorias" class="form-control"  ng-change="agregarfiltroCategoria()">
-                                <option value="" selected disabled>TODAS </option>
+                                <option selected disabled>Todas</option>
                             </select>
-                           
                         </div>
                         <div class="form-group col-md-12 col-xs-6">
-                            <label for="filters-tema" class="title-third">Tema</label>
+                            <label for="filters-tema" class="title-fourth">Tema</label>
                              <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control" >
-                                  <option value="" selected disabled>TODOS </option>
+                                  <option selected disabled>Todos</option>
                              </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12 col-sm-6">
-                            <h4 class="title-third">Estado</h4>
+                            <h4 class="title-fourth">Estado</h4>
                             <label class="title-fifth">
                                 <input type="checkbox"> Consolidadas en DJA
                             </label>
@@ -59,7 +52,7 @@
                             </label>
                         </div>
                         <div class="form-group col-md-12 col-sm-6">
-                            <label for="filters-fecha-sancion" class="title-third">Fecha de sanción</label>
+                            <label for="filters-fecha-sancion" class="title-fourth">Fecha de sanción</label>
                             <div class="row">
                                 <div class="col-sm-6">
                                    <select ng-model="fechaDesde" ng-options="fecha  for fecha in fechas" class="form-control" >
@@ -70,7 +63,6 @@
                                 <div class="col-sm-6">
                                     <select ng-model="fechaHasta" ng-options="fecha  for fecha in fechas" class="form-control" >
                                         <option value="" disabled selected>Hasta</option>
-                                       
                                     </select>
                                 </div>
                             </div>
@@ -86,7 +78,6 @@
                     <p class="text-p"><strong>{{resultadosTotales}}</strong> resultados para <strong>"{{textoBusqueda}}"</strong></p>
                 </div>
                 <section id="normativa-main-list">
-
                     <ul class="list-group">
                         <li id="list-header" class="col-md-12">
                             <ul class="row">
@@ -122,14 +113,9 @@
                                 </div>
                            </ul>
                         </li>
-
                     </ul>
-
                 </section>
-
                 <div  ng-include src='"partials/paginador.html"'></div>
-               
-                
             </section>
         </div>
     </div>

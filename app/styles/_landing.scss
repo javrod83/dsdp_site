@@ -15,9 +15,9 @@
 		p
 		{
 			color: white;
-			text-shadow: $text-shadow-image;
+			text-shadow: $f-text-shadow-image;
 		}
-		.title-heading
+		.title-primary
 		{
 			color: white !important;
 			margin: 20px 0 0 0;
@@ -26,7 +26,7 @@
 	}
 	.btn
 	{
-		font-size: $font-size-base;
+		font-size: $f-font-size-base;
 	}
 	.container
 	{
@@ -34,7 +34,7 @@
 		{
 			.title-secondary
 			{
-				color: $color-main-gray;
+				color: $color-gray;
 				padding: 10px 0;
 				text-align: left;
 			}
@@ -57,17 +57,6 @@
 	border: 1px solid $color-light-gray;
 	border-radius: $border-radius-base;
 	padding: 15px;
-
-	.title-fourth
-	{
-		font-size: $font-size-small;
-	}
 }
 
 /* clases */
-
-.border-bottom-gray
-{
-	border-top: none;
-	border-bottom: 1px solid $color-soft-gray;
-}

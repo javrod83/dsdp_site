@@ -5,88 +5,13 @@
 //@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,400,700,700);
 //@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 
-/* variables */
-
-// Colores
-
-$color-dark-blue: 			#007092;
-$color-blue:	 			#0092c2;
-$color-main-blue: 			#00b4e1;
-$color-light-blue: 			#3ccef0;
-$color-soft-blue: 			#6edcf5;
-
-$color-soft-gray:			#eee;
-$color-light-gray:			#cfcfcf;
-$color-gray:				#999;
-$color-main-gray:			#555;
-$color-dark-gray:			#333;
-
-$color-violet:				#8d6caa;
-$color-light-violet:		#9f81b8;
-
-$color-red:					#dc5f50;
-$color-light-red:			#eb7869;
-
-$color-orange:				#ec9f48;
-$color-light-orange:		#f5be50;
-
-$color-green:				#95c240;
-$color-light-green:			#b4d155;
-
-$color-turquoise:			#19a8b2;
-$color-light-turquoise:		#43bec6;
-
-// Botones
-
-$btn-default-color:             $color-dark-gray !default;
-$btn-default-bg:                white !default;
-$btn-default-border:            $color-gray !default;
-
-$btn-primary-color:             white !default;
-$btn-primary-bg:                $color-main-blue !default;
-$btn-primary-border:            darken($color-main-blue, 5%) !default;
-
-$btn-sucess-color:              white !default;
-$btn-success-bg:                $color-green !default;
-$btn-success-border:            darken($color-green, 5%) !default;
-
-$btn-info-color:              	white !default;
-$btn-info-bg:                   $color-violet !default;
-$btn-info-border:               darken($color-violet, 5%) !default;
-
-$btn-warning-color:             white !default;
-$btn-warning-bg:                $color-orange !default;
-$btn-warning-border:            darken($color-orange, 5%) !default;
-
-$btn-primary-color:             white !default;
-$btn-danger-bg:                 $color-red !default;
-$btn-danger-border:             darken($color-red, 5%) !default;
-
-
-// Nav
-
-$navbar-height: 			64px;
-
-// Fuentes
-
-$font-family-primary: 		'PT Sans', sans-serif;
-$font-family-secondary: 	'PT Serif', serif;
-$font-size-xxlarge:			$font-size-base * 2.86;							
-$font-size-xlarge:			$font-size-base * 2.145; 							
-$font-size-large:			$font-size-base * 1.5; 							
-$font-size-medium:			$font-size-base * 1.25;							
-$font-size-base: 			16px;											
-$font-size-small:			$font-size-base * 0.875; 						
-$font-size-xsmall:			$font-size-base * 0.6875; 						
-$text-shadow-image: 		0 2px 10px rgba(0, 0, 0, 0.1);
-
 /* etiquetas */
 
 body
 {
 	color: $color-dark-gray;
-	font-family: $font-family-primary;
-	font-size: $font-size-base;
+	font-family: $f-font-family-primary;
+	font-size: $f-font-size-base;
 	font-weight: 400;
 }
 footer
@@ -142,72 +67,12 @@ ul
 	margin-top: 15px;
 	margin-bottom: 20px;
 }
-/*
-.btn-default
+.border-bottom-gray
 {
-	background-color: $color-;
-	border-color: $color;
+	border-top: none;
+	border-bottom: 1px solid $color-soft-gray;
+	margin: 20px 0 10px 0;
 }
-.btn-primary
-{
-	background-color: $color-;
-	border-color: $color;
-}
-// Success appears as green
-.btn-success
-{
-	background-color: $color-;
-	border-color: $color;
-}
-// Info appears as blue-green
-.btn-info
-{
-	background-color: $color-;
-	border-color: $color;
-}
-// Warning appears as orange
-.btn-warning
-{
-	background-color: $color-;
-	border-color: $color;
-}
-// Danger and error appear as red
-.btn-danger
-{
-	background-color: $color-;
-	border-color: $color;
-}
-*/
-/*
-.btn-default
-{
- 	@include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
-}
-.btn-primary
-{
- 	@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-}
-// Success appears as green
-.btn-success
-{
- 	@include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
-}
-// Info appears as blue-green
-.btn-info
-{
- 	@include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
-}
-// Warning appears as orange
-.btn-warning
-{
- 	@include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-}
-// Danger and error appear as red
-.btn-danger
-{
- 	@include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-}
-*/
 .caret
 {
 	margin: 0 0 0 8px;
@@ -219,9 +84,9 @@ ul
 }
 .filters-tags
 {
-	background-color: $color-gray;
+	background-color: $color-main-gray;
 	color: white;
-	font-size: $font-size-small;
+	font-size: $f-font-size-small;
 	position: relative;
 
 	.fa-remove
@@ -229,16 +94,14 @@ ul
 		text-align: right;
 	}
 }
-.font-bold
-{
-	font-weight: 700 !important;
-}
 .font-secondary
 {
-	font-family: $font-family-secondary;
+	font-family: $f-font-family-secondary;
 }
 .form-base
 {
+	color: $color-dark-gray;
+
 	::-webkit-input-placeholder
 	{
 	    color:    $color-gray !important;
@@ -260,45 +123,60 @@ ul
 		legend
 		{
 			border: none;
+			color: $color-dark-gray !important;
 			margin: 0 0 10px 0;
 		}
 		.title-third
 		{
 			margin: 15px 0 10px 0 !important;
 		}
+		.title-fourth
+		{
+			font-weight: 400 !important;
+		}
 	}
+}
+.form-control
+{
+	font-size: $f-font-size-base;
+	line-height: 1.75;
 }
 .form-lg
 {
 	::-webkit-input-placeholder
 	{
 	    display: inline-block;
-	    font-size: $font-size-base !important;
+	    font-size: $f-font-size-base !important;
+	    line-height: 1.5;
 	    padding: 2px 0 0 0;
 	}
 	:-moz-placeholder
 	{
 	    display: inline-block;
-	    font-size: $font-size-base !important;
+	    font-size: $f-font-size-base !important;
+	    line-height: 1.5;
 	    padding: 2px 0 0 0;
 	}
 	::-moz-placeholder
 	{
 	    display: inline-block;
-	    font-size: $font-size-base !important;
+	    font-size: $f-font-size-base !important;
+	    line-height: 1.5;
 	    padding: 2px 0 0 0;
 	}
 	:-ms-input-placeholder
 	{
 	    display: inline-block;
-	    font-size: $font-size-base !important;
+	    font-size: $f-font-size-base !important;
+	    line-height: 1.5;
 	    padding: 2px 0 0 0;
 	}
 	fieldset
 	{
 		legend
 		{
-			font-size: $font-size-large;
+			color: $color-dark-gray !important;
+			font-size: $f-font-size-large;
 		}
 	}
 }
@@ -314,10 +192,18 @@ ul
 		margin: 0;
 	}
 }
+.input-group-lg
+{
+	.form-control
+	{
+		font-size: $f-font-size-base;
+		line-height: 1.75;
+	}
+}
 .navbar
 {
 	border: 0;
-	font-size: $font-size-base;
+	font-size: $f-font-size-base;
 	margin: 0;
 }
 .navbar-default
@@ -341,6 +227,7 @@ ul
 			{
 				color: white;
 				cursor: pointer;
+				line-height: 1.5;
 				padding: 20px;
 			
 				&:hover,
@@ -427,7 +314,7 @@ ul
 	border-top: 1px solid $color-light-gray;
 	color: $color-gray;
 	display: block;
-	font-size: $font-size-small;
+	font-size: $f-font-size-small;
 	margin: 10px 0;
 	padding: 5px 0 0 0;
 
@@ -447,52 +334,52 @@ ul
 }
 .text-bold
 {
-	font-weight: 700;
+	font-weight: 700 !important;
 }
 .text-note
 {
-	font-size: $font-size-xsmall;
+	font-size: $f-font-size-xsmall;
 }
 .text-p
 {
-	color: $color-main-gray;
-	font-family: $font-family-secondary;
-	font-size: $font-size-base !important;
+	color: $color-gray;
+	font-family: $f-font-family-secondary;
+	font-size: $f-font-size-base !important;
 	margin: 20px 0;
 }
 .title-heading
 {
-	font-size: $font-size-xxlarge !important;
-	font-weight: 700;
+	font-size: $f-font-size-xxlarge !important;
+	font-weight: 400;
 }
 .title-primary
 {
-	font-size: $font-size-xxlarge !important;
-	font-weight: 400;
+	font-size: $f-font-size-xxlarge !important;
+	font-weight: 700;
 }
 .title-secondary
 {
-	font-size: $font-size-xlarge !important;
+	font-size: $f-font-size-xlarge !important;
 	font-weight: 400;
 }
 .title-third
 {
-	font-size: $font-size-medium;
+	font-size: $f-font-size-medium;
 	font-weight: 400;
 	margin: 0 0 10px 0;
 }
 .title-fourth
 {
-	font-size: $font-size-base;
+	font-size: $f-font-size-base;
 	font-weight: 700;
 }
 .title-fifth
 {
-	font-size: $font-size-small;
+	font-size: $f-font-size-small;
 	font-weight: 400;
 }
 .title-medium
 {
-	font-size: $font-size-large;
+	font-size: $f-font-size-large;
 	font-weight:400;
 }
