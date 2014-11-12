@@ -1,26 +1,55 @@
 /* etiquetas */
 
-/*main
-{
-    display: block;
-}
-p
-{
-    line-height: 1.4;
-}
-ul
-{
-    list-style-type: none;
-}*/
-
 /* ids */
-
 
 /* clases */
 
-.ley
+.law
 {
     font-family: $f-font-family-secondary;
+
+    .article-num
+    {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .heading-law
+    {
+        border-bottom: 1px solid $color-dark-gray;
+        margin: 3% 0;
+        padding: 0 0 5% 0;
+        text-align: center !important;
+
+        h1
+        {
+            margin: 5% 0 3% 0;
+        }
+        .heading-law-data
+        {
+            p
+            {
+                text-transform: uppercase; 
+            }
+        }
+        .heading-law-description
+        {
+            font-size: $f-font-size-small;
+            text-align: center !important;
+        }
+    }
+    .title-heading,
+    .title-primary,
+    .title-secondary,
+    .title-third,
+    {
+        margin: 30px 0;
+        text-align: center !important;
+
+        span
+        {
+            display: block;
+        }
+    }
 }
 
 /*.article-num
