@@ -19,6 +19,7 @@ angular.module('digestoApp')
     //  };
 
     var filter = [] ; 
+    var key    = [] ; 
 
     function passFilters(item){
         var passed = true ; 
@@ -39,15 +40,24 @@ angular.module('digestoApp')
     return {
       clear: function () {
           filter = [] ; 
+          key    = [] ; 
       },
       add: function (newFilter) {
-          filter[newFilter.name] = newFilter ;
+          console.log("Filter manager add: ");
+          console.log(newFilter);
+          if ( key[newFilter.value]  === undefined)
+            key[newFilter.value] =( filter.push(newFilter) -1 );
+          else
+            filter[key[newFilter.value]] = newFilter ; 
       },
-      delete:function(filterName){
-        delete filter[filterName];
-      },
-      listFilters : function(){
-        return filter;
+      delete:function(filterValue){
+          console.log("Delete filter: ");
+          console.log(filterValue);
+        console.log(key[filterValue]);
+
+
+        filter.splice(key[filterValue],1);
+        delete key[filterValue];
       },
       apply:function(items){
         var output = [] ; 
