@@ -53,7 +53,7 @@ angular.module('digestoApp')
 
 
     function getDateBetween(sinceDate,UntilDate){
-      console.log("filter date older than ")
+      console.log("filter Between")
       return {
               'name'  : 'Entre '+sinceDate+" y "+UntilDate,
               'value' : 'DateFilter',
@@ -82,7 +82,28 @@ angular.module('digestoApp')
         console.log('Desde: '+$scope.currentSinceDate+' Hasta'+ $scope.currentUntilDate);
         
        // $scope.activeFilters.push($scope.currentCategory);
-            FilterManager.add ( ($scope.currentSinceDate !== 0 && $scope.currentUntilDate !== 0 )?getDateBetween($scope.currentSinceDate,$scope.currentUntilDate):($scope.currentSinceDate !== 0)?getDateIsOlderThan($scope.currentSinceDate) : getDateIsEarlier($scope.currentUntilDate) );
+
+        //si los campos son null o 0 
+          //borrar filtro de la lita 
+          //si lo
+
+          if (($scope.currentSinceDate === 0 && $scope.currentUntilDate === 0) || ($scope.currentSinceDate === null && $scope.currentUntilDate === null) ) 
+              {
+                  FilterManager.delete("DateFilter");  
+              }
+          else if(  ($scope.currentSinceDate !== 0 && $scope.currentUntilDate !== 0 ) && ($scope.currentSinceDate !== null && $scope.currentUntilDate !== null )  )
+              {
+                FilterManager.add(getDateBetween($scope.currentSinceDate,$scope.currentUntilDate))
+              }
+          else if ($scope.currentSinceDate !== 0 && $scope.currentSinceDate !== null )
+              {
+                FilterManager.add(getDateIsOlderThan($scope.currentSinceDate));
+              }
+          else
+              { 
+                FilterManager.add(getDateIsEarlier($scope.currentUntilDate));
+              }
+              
     
 
 
@@ -94,7 +115,12 @@ angular.module('digestoApp')
           console.log("Delete filter: ");
           console.log(filterValue);
           FilterManager.delete(filterValue);  
-          //$scope.activeFilters = FilterManager.filter;
+         if (filterValue == 'DateFilter')
+         {
+            $scope.currentSinceDate = '' ;
+            $scope.currentUntilDate = '' ;
+         }
+
         
       }
 

@@ -28,13 +28,13 @@
                         <div class="form-group col-md-12 col-xs-6">
                             <label for="filters-categorias" class="title-third">Categoría</label>
                             <select ng-model="currentCategory" ng-options="category.name  for category in categories" class="form-control"  ng-change="addCategoryFilter()">
-                                <option value="" selected disabled>Todas </option>
+                                <option value="NONE" selected disabled>Todas </option>
                             </select>
                         </div>
                         <div class="form-group col-md-12 col-xs-6">
                             <label for="filters-tema" class="title-third">Tema</label>
                              <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control"  ng-change="addTopicFilter()" >
-                                  <option value="" selected disabled>Todos </option>
+                                  <option value="NONE" selected disabled>Todos </option>
                              </select>
                         </div>
                     </div>
@@ -53,13 +53,12 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                    <select ng-model="currentSinceDate" ng-options="date  for date in dates" class="form-control" ng-change="checkDateFilter()" >
-                                         <option value="" selected disabled>Desde </option>
-                                        
+                                         <option value="" selected >Desde </option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
                                     <select ng-model="currentUntilDate" ng-options="date  for date in dates" class="form-control"  ng-change="checkDateFilter()">
-                                        <option value="" disabled selected>Hasta</option>
+                                        <option value="" selected  >Hasta</option>
                                     </select>
                                 </div>
                             </div>
