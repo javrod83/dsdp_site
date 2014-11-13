@@ -91,6 +91,8 @@ ul
 
 	.fa-remove
 	{
+		display: inline-block;
+		padding: 5px 5px 5px 10px;
 		text-align: right;
 	}
 }
@@ -338,7 +340,7 @@ ul
 	border-radius: $border-radius-small;
 	display: inline-block;
 	margin: 5px 5px 5px 0;
-	padding: 5px 30px 5px 10px;
+	padding: 5px 10px;
 }
 .text-bold
 {
