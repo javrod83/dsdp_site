@@ -27,24 +27,21 @@
                         <fieldset>
                             <legend class="title-third text-bold">Filtrar resultados</legend>
                             <section id="normativa-filters-tags" class="filters">
-                                <button class="tag filters-tags" ng-repeat="filtro in filtros">Filtro categoría 1 <i class="fa fa-remove"></i></button>
-                                <button class="tag filters-tags">Filtro categoría 2 <i class="fa fa-remove"></i></button>
-                                <button class="tag filters-tags">Tema 1 <i class="fa fa-remove"></i></button>
-                                <button class="tag filters-tags">Filtro años 1 <i class="fa fa-remove"></i></button>
-                                <a href="#" title="Mostrar todos" class="show-all">mostrar todos (+20)</a>
+                                <button class="tag filters-tags" ng-repeat="filter in activeFilters">{{filter.name}} <i class="fa fa-remove" ng-click="deleteFilter('{{filter.value}}')"></i></button>
+                                <a href="#" title="Mostrar todos" ng-show="activeFilters.length > 0 " class="show-all">mostrar todos (+{{activeFilters.length}})</a>
                             </section><!--/#normativa-filters-tags-->
                             <div>
                                 <div class="row">
                                     <div class="form-group col-md-12 col-xs-6">
-                                        <label for="filters-categorias" class="title-fourth">Categoría</label>
-                                        <select ng-model="categoriaActual" ng-options="categoria.nombre  for categoria in categorias" class="form-control"  ng-change="agregarfiltroCategoria()">
-                                            <option selected disabled>Todas</option>
+                                        <label for="filters-categorias" class="title-third">Categoría</label>
+                                        <select ng-model="currentCategory" ng-options="category.name  for category in categories" class="form-control"  ng-change="addCategoryFilter()">
+                                            <option value="NONE" selected disabled>Todas </option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-12 col-xs-6">
-                                        <label for="filters-tema" class="title-fourth">Tema</label>
-                                         <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control" >
-                                              <option selected disabled>Todos</option>
+                                        <label for="filters-tema" class="title-third">Tema</label>
+                                         <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control"  ng-change="addTopicFilter()" >
+                                              <option value="NONE" selected disabled>Todos </option>
                                          </select>
                                     </div>
                                 </div>
@@ -62,14 +59,13 @@
                                         <label for="filters-fecha-sancion" class="title-fourth">Fecha de sanción</label>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                               <select ng-model="fechaDesde" ng-options="fecha  for fecha in fechas" class="form-control" >
-                                                     <option value="" selected disabled>Desde </option>
-                                                    
+                                               <select ng-model="currentSinceDate" ng-options="date  for date in dates" class="form-control" ng-change="checkDateFilter()" >
+                                                     <option value="" selected >Desde </option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-6">
-                                                <select ng-model="fechaHasta" ng-options="fecha  for fecha in fechas" class="form-control" >
-                                                    <option value="" disabled selected>Hasta</option>
+                                                <select ng-model="currentUntilDate" ng-options="date  for date in dates" class="form-control"  ng-change="checkDateFilter()">
+                                                    <option value="" selected  >Hasta</option>
                                                 </select>
                                             </div>
                                         </div>
