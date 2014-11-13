@@ -133,6 +133,7 @@ ul
 		.title-fourth
 		{
 			font-weight: 400 !important;
+			margin: 0 0 10px 0;
 		}
 	}
 }
@@ -309,6 +310,13 @@ ul
 		}
 	}
 }
+.nav-path-header
+{
+	p
+	{
+		margin: 30px 0 0 0;
+	}
+}
 .show-all
 {
 	border-top: 1px solid $color-light-gray;
@@ -338,7 +346,7 @@ ul
 }
 .text-note
 {
-	font-size: $f-font-size-xsmall;
+	font-size: $f-font-size-small;
 }
 .text-p
 {

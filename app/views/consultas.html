@@ -95,9 +95,11 @@
                </div>
                <div id="file-upload" class="col-md-6 form-group">
                   <div class="row">
-                     <button type="file" id="adjuntar-archivo" class="col-sm-6 col-xs-12 btn btn-primary btn-lg" placeholder="Adjuntar archivo">Adjuntar archivo</button>
-                     <div class="col-sm-6 col-xs-12">
-                        <p class="ellipsis">nombre_del_archivo_cargado.docx</p>
+                     <div class="col-md-12">
+                        <button type="file" id="adjuntar-archivo" class="col-sm-5 col-xs-12 btn btn-primary btn-lg" placeholder="Adjuntar archivo">Adjuntar archivo</button>
+                        <div class="col-sm-7 col-xs-12">
+                           <p class="ellipsis">nombre_del_archivo_cargado.docx</p>
+                        </div>
                      </div>
                   </div><!--/.row-->
                </div><!--/.col-md-6--> 
@@ -130,7 +132,7 @@
             <div class="row">
                <div class="col-md-12">
                   <p class="col-md-8 text-note">Los datos marcados con * son obligatorios</p>
-                  <input class="btn btn-success btn-lg pull-right col-md-4" type="submit" value="Enviar consulta" {{action submit target="view"}}data-loading-text="Enviando..." />
+                  <input class="btn btn-warning btn-lg pull-right col-md-4" type="submit" value="Enviar consulta" {{action submit target="view"}}data-loading-text="Enviando..." />
                </div>
             </div>
 

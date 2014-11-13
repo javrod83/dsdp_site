@@ -15,108 +15,110 @@
         </form><!--/#normativa-search-->
     </div>
     <div class="row">
-        <aside id="normativa-filters" class="col-md-3 col-xs-12 pull-right">
-            <form role="form" id="normativa-filters" class="form-base">
-            <fieldset>
-                <legend class="title-third text-bold">Filtrar resultados</legend>
-                <section id="normativa-filters-tags" class="filters">
-                    <button class="tag filters-tags" ng-repeat="filtro in filtros">Filtro categoría 1 <i class="fa fa-remove"></i></button>
-                    <button class="tag filters-tags">Filtro categoría 2 <i class="fa fa-remove"></i></button>
-                    <button class="tag filters-tags">Tema 1 <i class="fa fa-remove"></i></button>
-                    <button class="tag filters-tags">Filtro años 1 <i class="fa fa-remove"></i></button>
-                    <a href="#" title="Mostrar todos" class="show-all">mostrar todos (+20)</a>
-                </section><!--/#normativa-filters-tags-->
-                <div>
-                    <div class="row">
-                        <div class="form-group col-md-12 col-xs-6">
-                            <label for="filters-categorias" class="title-fourth">Categoría</label>
-                            <select ng-model="categoriaActual" ng-options="categoria.nombre  for categoria in categorias" class="form-control"  ng-change="agregarfiltroCategoria()">
-                                <option selected disabled>Todas</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-12 col-xs-6">
-                            <label for="filters-tema" class="title-fourth">Tema</label>
-                             <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control" >
-                                  <option selected disabled>Todos</option>
-                             </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-12 col-sm-6">
-                            <h4 class="title-fourth">Estado</h4>
-                            <label class="title-fifth">
-                                <input type="checkbox"> Consolidadas en DJA
-                            </label>
-                            <label class="title-fifth">
-                                <input type="checkbox"> En proceso de consolidación
-                            </label>
-                        </div>
-                        <div class="form-group col-md-12 col-sm-6">
-                            <label for="filters-fecha-sancion" class="title-fourth">Fecha de sanción</label>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                   <select ng-model="fechaDesde" ng-options="fecha  for fecha in fechas" class="form-control" >
-                                         <option value="" selected disabled>Desde </option>
-                                        
-                                    </select>
-                                </div>
-                                <div class="col-sm-6">
-                                    <select ng-model="fechaHasta" ng-options="fecha  for fecha in fechas" class="form-control" >
-                                        <option value="" disabled selected>Hasta</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-            </form>
-        </aside>
-        <div class="col-md-9 col-xs-12 pull-left">
-            <section id="normativa-main">
-                <div class="nav-path-header" ng-show="showResult">
+        <section id="normativa-main">
+            <div class="col-md-9 nav-path-header" ng-show="showResult">
+                <div class="col-xs-12">
                     <p class="text-p"><strong>{{resultadosTotales}}</strong> resultados para <strong>"{{textoBusqueda}}"</strong></p>
                 </div>
+            </div>
+            <div class="col-md-3 col-xs-12 pull-right">
+                <aside id="normativa-filters">
+                    <form role="form" id="normativa-filters" class="form-base">
+                        <fieldset>
+                            <legend class="title-third text-bold">Filtrar resultados</legend>
+                            <section id="normativa-filters-tags" class="filters">
+                                <button class="tag filters-tags" ng-repeat="filtro in filtros">Filtro categoría 1 <i class="fa fa-remove"></i></button>
+                                <button class="tag filters-tags">Filtro categoría 2 <i class="fa fa-remove"></i></button>
+                                <button class="tag filters-tags">Tema 1 <i class="fa fa-remove"></i></button>
+                                <button class="tag filters-tags">Filtro años 1 <i class="fa fa-remove"></i></button>
+                                <a href="#" title="Mostrar todos" class="show-all">mostrar todos (+20)</a>
+                            </section><!--/#normativa-filters-tags-->
+                            <div>
+                                <div class="row">
+                                    <div class="form-group col-md-12 col-xs-6">
+                                        <label for="filters-categorias" class="title-fourth">Categoría</label>
+                                        <select ng-model="categoriaActual" ng-options="categoria.nombre  for categoria in categorias" class="form-control"  ng-change="agregarfiltroCategoria()">
+                                            <option selected disabled>Todas</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-12 col-xs-6">
+                                        <label for="filters-tema" class="title-fourth">Tema</label>
+                                         <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control" >
+                                              <option selected disabled>Todos</option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-12 col-sm-6">
+                                        <h4 class="title-fourth">Estado</h4>
+                                        <label class="title-fifth">
+                                            <input type="checkbox"> Consolidadas en DJA
+                                        </label>
+                                        <label class="title-fifth">
+                                            <input type="checkbox"> En proceso de consolidación
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-6">
+                                        <label for="filters-fecha-sancion" class="title-fourth">Fecha de sanción</label>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                               <select ng-model="fechaDesde" ng-options="fecha  for fecha in fechas" class="form-control" >
+                                                     <option value="" selected disabled>Desde </option>
+                                                    
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <select ng-model="fechaHasta" ng-options="fecha  for fecha in fechas" class="form-control" >
+                                                    <option value="" disabled selected>Hasta</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </aside>
+            </div>
+            <div class="col-md-9 col-xs-12 pull-left">
                 <section id="normativa-main-list">
                     <ul class="list-group">
                         <li id="list-header" class="col-md-12">
                             <ul class="row">
-                                <div class="col-md-5">
-                                    <div class="row">
-                                        <li class="col-md-3 col-lg-4"><a href="#" title="Fecha" class="title-fifth">Fecha<span class="caret"></span></a></li>
-                                        <li class="col-md-5 col-lg-4"><a href="#" title="Número de Norma" class="title-fifth">N° Norma<span class="caret"></span></a></li>
-                                        <li class="col-md-4 col-lg-4"><a href="#" title="Código de Norma" class="title-fifth">Código<span class="caret"></span></a></li>
-                                    </div>
+                                <div class="col-md-5 list-data">
+                                    <li class="col-md-4"><a title="Fecha" class="title-fifth">Fecha<span class="caret"></span></a></li>
+                                    <li class="col-md-4"><a title="Número de Norma" class="title-fifth">N° Norma<span class="caret"></span></a></li>
+                                    <li class="col-md-4"><a title="Código de Norma" class="title-fifth">Código<span class="caret"></span></a></li>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="row">
-                                        <li class="col-md-10"><a href="#" title="Descripción" class="title-fifth">Descripción</a></li>
-                                        <li class="col-md-2"><a href="#" title="Estado de vigencia" class="title-fifth">Estado</a></li>
+                                        <li class="col-md-12"><a href="#" title="Descripción" class="title-fifth">Descripción</a></li>
                                     </div>
                                 </div>
                            </ul>
                         </li>
                         <li class="list-item col-md-12" ng-repeat="respuesta in respuestas">
                             <ul class="row">
-                                <div class="col-md-7 pull-right">
-                                    <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-10"><h2 class="title-fourth"><a href="{{respuesta.NumDJA.link}}" title="Descripción" class="text-bold">{{respuesta.Titulo}}</a></h2></li>
-                                        <li class="col-md-2"><img src="../images/icon_01.png" alt="Norma no vigente" /></li>
-                                    </div>
+                                <div class="col-md-5 list-data">
+                                    <li id="list-item-fecha" class="col-md-4">{{respuesta.FechaSanc.dia}}/{{respuesta.FechaSanc.mes}}/{{respuesta.FechaSanc.anio}}</li>
+                                    <li id="list-item-nro-norma" class="col-md-4">{{respuesta.AntesNorma}}</li>
+                                    <li id="list-item-codigo" class="col-md-4">{{respuesta.NumDJA.text}}</li>
                                 </div>
-                                <div class="col-md-5 pull-left">
+                                <div class="col-md-7">
                                     <div class="row">
-                                        <li id="list-item-fecha" class="row col-md-4">{{respuesta.FechaSanc.dia}}/{{respuesta.FechaSanc.mes}}/{{respuesta.FechaSanc.anio}}</li>
-                                        <li id="list-item-nro-norma" class="col-md-4">{{respuesta.AntesNorma}}</li>
-                                        <li id="list-item-codigo"class="col-md-4">{{respuesta.NumDJA.text}}</li>
-                                    </div>
-                                </div>
-                           </ul>
-                        </li>
-                    </ul>
-                </section>
-                <div  ng-include src='"partials/paginador.html"'></div>
-            </section>
-        </div>
-    </div>
+                                        <li id="list-item-descripcion" class="col-md-12">
+                                            <h2 class="title-fourth">
+                                                <a href="{{respuesta.NumDJA.link}}" title="Descripción" class="text-bold">{{respuesta.Titulo}}</a>
+                                            </h2>
+                                        </li>
+                                    </div><!--/.row-->
+                                </div><!--/.col-md-7-->
+                           </ul><!--/.row-->
+                        </li><!--/.list-item-->
+                    </ul><!--/.list-group-->
+                </section><!--/#normativa-main-list-->
+                <div ng-include src='"partials/paginador.html"'></div>
+            </div>
+        </section><!--/#normativa-main-->
+    </div><!--/.row-->
 </section><!--/#normativa-->
