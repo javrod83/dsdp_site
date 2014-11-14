@@ -1,0 +1,53 @@
+.accordion
+{
+    h2,
+    h3
+    {
+        cursor: pointer;
+        position: relative;
+
+        i
+        {
+            position: absolute;
+            -webkit-transition: color 0.3s ease 0.1s;
+            -moz-transition: color 0.3s ease 0.1s;
+            -o-transition: color 0.3s ease 0.1s;
+            transition: color 0.3s ease 0.1s;
+        }
+    }
+    h2
+    {
+        i
+        {
+            bottom: 10px;
+            left: 48.75%;
+        }
+    }
+    h3
+    {
+        i
+        {
+            bottom: 12px;
+        	left: 49%;
+        }
+    }
+    h2:hover,
+    h3:hover
+    {
+        i
+        {
+            color: rgb(0,180,225);
+        }
+    }
+    .accordion-content
+    {
+        display: none;
+    }
+    .active 
+    {
+        .accordion-content
+        {
+            display: block;
+        }
+    }
+}

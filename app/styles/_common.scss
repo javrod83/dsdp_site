@@ -7,6 +7,10 @@
 
 /* etiquetas */
 
+a
+{
+	cursor: pointer;
+}
 body
 {
 	color: $color-dark-gray;
@@ -24,6 +28,10 @@ p
 {
 	padding: 0 !important;
 }
+small
+{
+	font-size: $f-font-size-xsmall;
+}
 strong
 {
 	font-weight: 700;
@@ -31,6 +39,7 @@ strong
 ul
 {
 	list-style-type: none;
+	padding: 0;
 }
 
 /* id */
@@ -128,11 +137,11 @@ ul
 			color: $color-dark-gray !important;
 			margin: 0 0 10px 0;
 		}
-		.title-third
+		.heading-third
 		{
 			margin: 15px 0 10px 0 !important;
 		}
-		.title-fourth
+		.heading-fourth
 		{
 			font-weight: 400 !important;
 			margin: 0 0 10px 0;
@@ -194,6 +203,41 @@ ul
 	{
 		margin: 0;
 	}
+}
+.heading-primary
+{
+	font-size: $f-font-size-xxlarge !important;
+	font-weight: 400;
+}
+.heading-book,
+.heading-secondary
+{
+	font-size: $f-font-size-xlarge !important;
+	font-weight: 400;
+}
+.heading-title,
+.heading-large
+{
+	font-size: $f-font-size-large;
+	font-weight:400;
+}
+.heading-chapter,
+.heading-third
+{
+	font-size: $f-font-size-medium;
+	font-weight: 400;
+	margin: 0 0 10px 0;
+}
+.heading-section,
+.heading-fourth
+{
+	font-size: $f-font-size-base;
+	font-weight: 400;
+}
+.heading-fifth
+{
+	font-size: $f-font-size-small;
+	font-weight: 400;
 }
 .input-group-lg
 {
@@ -319,6 +363,10 @@ ul
 		margin: 30px 0 0 0;
 	}
 }
+.references
+{
+	font-size: $f-font-size-xsmall;
+}
 .show-all
 {
 	border-top: 1px solid $color-light-gray;
@@ -356,40 +404,4 @@ ul
 	font-family: $f-font-family-secondary;
 	font-size: $f-font-size-base !important;
 	margin: 20px 0;
-}
-.title-heading
-{
-	font-size: $f-font-size-xxlarge !important;
-	font-weight: 400;
-}
-.title-primary
-{
-	font-size: $f-font-size-xxlarge !important;
-	font-weight: 700;
-}
-.title-secondary
-{
-	font-size: $f-font-size-xlarge !important;
-	font-weight: 400;
-}
-.title-third
-{
-	font-size: $f-font-size-medium;
-	font-weight: 400;
-	margin: 0 0 10px 0;
-}
-.title-fourth
-{
-	font-size: $f-font-size-base;
-	font-weight: 700;
-}
-.title-fifth
-{
-	font-size: $f-font-size-small;
-	font-weight: 400;
-}
-.title-medium
-{
-	font-size: $f-font-size-large;
-	font-weight:400;
 }

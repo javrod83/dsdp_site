@@ -1,6 +1,6 @@
 <div class="container-fluid heading">
     <div class="container">
-        <h1 class="title-heading">Legislación del Digesto Jurídico Argentino</h1>
+        <h1 class="heading-primary">Legislación del Digesto Jurídico Argentino</h1>
     </div>
 </div><!--/.heading-->
 <section id="normativa" class="container">
@@ -25,7 +25,7 @@
                 <aside id="normativa-filters">
                     <form role="form" id="normativa-filters" class="form-base">
                         <fieldset>
-                            <legend class="title-third text-bold">Filtrar resultados</legend>
+                            <legend class="heading-third text-bold">Filtrar resultados</legend>
                             <section id="normativa-filters-tags" class="filters">
                                 <button class="tag filters-tags" ng-repeat="filter in activeFilters">{{filter.name}} <i class="fa fa-remove" ng-click="deleteFilter('{{filter.value}}')"></i></button>
                                 <a href="#" title="Mostrar todos" ng-show="activeFilters.length > 0 " class="show-all">mostrar todos (+{{activeFilters.length}})</a>
@@ -33,13 +33,13 @@
                             <div>
                                 <div class="row">
                                     <div class="form-group col-md-12 col-xs-6">
-                                        <label for="filters-categorias" class="title-fourth">Categoría</label>
+                                        <label for="filters-categorias" class="heading-fourth">Categoría</label>
                                         <select ng-model="currentCategory" ng-options="category.name  for category in categories" class="form-control"  ng-change="addCategoryFilter()">
                                             <option value="NONE" selected disabled>Todas </option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-12 col-xs-6">
-                                        <label for="filters-tema" class="title-fourth">Tema</label>
+                                        <label for="filters-tema" class="heading-fourth">Tema</label>
                                          <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control"  ng-change="addTopicFilter()" >
                                               <option value="NONE" selected disabled>Todos </option>
                                          </select>
@@ -47,16 +47,16 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-12 col-sm-6">
-                                        <h4 class="title-fourth">Estado</h4>
-                                        <label class="title-fifth">
+                                        <h4 class="heading-fourth">Estado</h4>
+                                        <label class="heading-fifth">
                                             <input type="checkbox"> Consolidadas en DJA
                                         </label>
-                                        <label class="title-fifth">
+                                        <label class="heading-fifth">
                                             <input type="checkbox"> En proceso de consolidación
                                         </label>
                                     </div>
                                     <div class="form-group col-md-12 col-sm-6">
-                                        <label for="filters-fecha-sancion" class="title-fourth">Fecha de sanción</label>
+                                        <label for="filters-fecha-sancion" class="heading-fourth">Fecha de sanción</label>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                <select ng-model="currentSinceDate" ng-options="date  for date in dates" class="form-control" ng-change="checkDateFilter()" >
@@ -82,13 +82,13 @@
                         <li id="list-header" class="col-md-12">
                             <ul class="row">
                                 <div class="col-md-5 list-data">
-                                    <li class="col-md-4"><a title="Fecha" class="title-fifth">Fecha<span class="caret"></span></a></li>
-                                    <li class="col-md-4"><a title="Número de Norma" class="title-fifth">N° Norma<span class="caret"></span></a></li>
-                                    <li class="col-md-4"><a title="Código de Norma" class="title-fifth">Código<span class="caret"></span></a></li>
+                                    <li class="col-md-4"><a title="Fecha" class="heading-fifth">Fecha<span class="caret"></span></a></li>
+                                    <li class="col-md-4"><a title="Número de Norma" class="heading-fifth">N° Norma<span class="caret"></span></a></li>
+                                    <li class="col-md-4"><a title="Código de Norma" class="heading-fifth">Código<span class="caret"></span></a></li>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="row">
-                                        <li class="col-md-12"><a href="#" title="Descripción" class="title-fifth">Descripción</a></li>
+                                        <li class="col-md-12"><a href="#" title="Descripción" class="heading-fifth">Descripción</a></li>
                                     </div>
                                 </div>
                            </ul>
@@ -103,7 +103,7 @@
                                 <div class="col-md-7">
                                     <div class="row">
                                         <li id="list-item-descripcion" class="col-md-12">
-                                            <h2 class="title-fourth">
+                                            <h2 class="heading-fourth">
                                                 <a href="{{respuesta.NumDJA.link}}" title="Descripción" class="text-bold">{{respuesta.Titulo}}</a>
                                             </h2>
                                         </li>
