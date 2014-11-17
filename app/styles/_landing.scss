@@ -73,6 +73,14 @@
 	border: 1px solid $color-light-gray;
 	border-radius: $border-radius-base;
 	padding: 15px;
+
+	#landing-form-select-since
+	{
+		@media (min-width: $screen-md-min) and (max-width: $screen-md-max)
+		{
+			margin: 0 0 15px 0;
+		}
+	}
 }
 
 /* clases */
