@@ -21,17 +21,7 @@
 			color: $color-main-gray !important;
 			line-height: 1.2;
 			margin: 30px 0;
-			padding: 0 0 18px 20px;
-
-			&:before
-			{
-				content: '\f0b0';
-				font-family: 'FontAwesome';
-				font-size: $f-font-size-base;
-				position: absolute;
-				left: 15px;
-				top: 33px;
-			}
+			padding: 0 0 18px 0;
 		}
 	}
 }
@@ -57,14 +47,27 @@
 		border-radius: 0;
 		box-shadow: none;
 		color: $color-gray;
+		display: table;
 		font-size: $f-font-size-large;
 		font-weight: 400;
 		line-height: 1.5;
 		min-height: 40px;
-		padding: 0;
+		padding: 0 0 0 7px;
 		position: relative;
 		bottom: -4px;
 		width: 100%;
+
+		&:before
+		{
+			color: $color-light-gray;
+			content: '\f002';
+			font-family: 'FontAwesome';
+			font-size: $f-font-size-medium;
+			position: absolute;
+			left: -15px;
+			top: 10px;
+			z-index: 9999;
+		}
 	}
 	.form-group
 	{
