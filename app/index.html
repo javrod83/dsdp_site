@@ -12,6 +12,7 @@
       <!-- endbuild -->
       <!-- build:css(.tmp) styles/main.css -->
       <link rel="stylesheet" href="styles/main.css">
+      <link rel="stylesheet" href="styles/css/animate.css">
       <!-- endbuild -->
    </head>
    <body ng-app="digestoApp">
@@ -139,6 +140,17 @@
       <script src="scripts/directives/autocomplete.js"></script>
       <script src="scripts/services/origendatos.js"></script>
       <script src="scripts/services/filters.js"></script>
+      <script src="scripts/js/wow.min.js"></script>
+      <script>
+         wow = new WOW(
+         {
+            boxClass:     'wow',      // default
+            animateClass: 'animated', // default
+            offset:       25          // default
+         }
+         )
+         new WOW().init();
+      </script>
       <!-- endbuild -->
 </body>
 </html>

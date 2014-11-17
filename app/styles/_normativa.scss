@@ -21,7 +21,17 @@
 			color: $color-main-gray !important;
 			line-height: 1.2;
 			margin: 30px 0;
-			padding: 0 0 18px 0;
+			padding: 0 0 18px 20px;
+
+			&:before
+			{
+				content: '\f0b0';
+				font-family: 'FontAwesome';
+				font-size: $f-font-size-base;
+				position: absolute;
+				left: 15px;
+				top: 33px;
+			}
 		}
 	}
 }
