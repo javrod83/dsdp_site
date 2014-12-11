@@ -3,3 +3,4 @@ dist
 .tmp
 .sass-cache
 bower_components
+!bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss
