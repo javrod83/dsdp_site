@@ -37,6 +37,10 @@ angular
       url: '/normativa',
       templateUrl: 'views/normativa.html',
       controller: 'NormativaCtrl'
+    }).state('legislacion', {
+      url: '/legislacion',
+      templateUrl: 'views/legislacion.html',
+      controller: 'LegislacionCtrl'
     });
 
 
