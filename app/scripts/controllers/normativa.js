@@ -220,6 +220,10 @@ angular.module('digestoApp')
             }
         else
             { $scope.respuestas = results; }
+
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
     }
 
     function buscarDiccionarios()

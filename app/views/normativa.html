@@ -38,23 +38,6 @@
                                             <option value="NONE" selected disabled>Todas </option>
                                         </select>
                                     </div>
-                                    <!--div class="form-group col-md-12 col-xs-6">
-                                        <label for="filters-tema" class="heading-fourth">Tema</label>
-                                         <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control"  ng-change="addTopicFilter()" >
-                                              <option value="NONE" selected disabled>Todos </option>
-                                         </select>
-                                    </div-->
-                                </div>
-                                <div class="row">
-                                    <!--div class="form-group col-md-12 col-sm-6">
-                                        <h4 class="heading-fourth">Estado</h4>
-                                        <label class="heading-fifth">
-                                            <input type="checkbox"> Consolidadas en DJA
-                                        </label>
-                                        <label class="heading-fifth">
-                                            <input type="checkbox"> En proceso de consolidación
-                                        </label>
-                                    </div-->
                                     <div class="form-group col-md-12 col-sm-6">
                                         <label for="filters-fecha-sancion" class="heading-fourth">Fecha de sanción</label>
                                         <div class="row">
@@ -71,6 +54,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--div class="row">
+                                    <div class="form-group col-md-12 col-xs-6">
+                                        <label for="filters-tema" class="heading-fourth">Tema</label>
+                                         <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control"  ng-change="addTopicFilter()" >
+                                              <option value="NONE" selected disabled>Todos </option>
+                                         </select>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-6">
+                                        <h4 class="heading-fourth">Estado</h4>
+                                        <label class="heading-fifth">
+                                            <input type="checkbox"> Consolidadas en DJA
+                                        </label>
+                                        <label class="heading-fifth">
+                                            <input type="checkbox"> En proceso de consolidación
+                                        </label>
+                                    </div>
+                                </div--><!--/.row-->
                             </div>
                         </fieldset>
                     </form>
@@ -79,12 +79,20 @@
             <div class="col-md-9 col-xs-12 pull-left">
                 <section id="normativa-main-list">
                     <ul class="list-group">
-                        <li id="list-header" class="col-md-12">
+                        <li id="list-header" class="col-md-12 hidden-sm hidden-xs">
                             <ul class="row">
                                 <div class="col-md-5 list-data">
-                                    <li class="col-md-4"><a title="Fecha" class="heading-fifth">Fecha<span class="caret"></span></a></li>
-                                    <li class="col-md-4"><a title="Número de Norma" class="heading-fifth">N° Norma<span class="caret"></span></a></li>
-                                    <li class="col-md-4"><a title="Código de Norma" class="heading-fifth">Código<span class="caret"></span></a></li>
+                                    <div class="row">
+                                        <li class="col-md-4">
+                                            <a title="Fecha" class="heading-fifth">Fecha<span class="caret"></span></a>
+                                        </li>
+                                        <li class="col-md-4">
+                                            <a title="Número de Norma" class="heading-fifth">N° Norma<span class="caret"></span></a>
+                                        </li>
+                                        <li class="col-md-4">
+                                            <a title="Código de Norma" class="heading-fifth">Código<span class="caret"></span></a>
+                                        </li>
+                                    </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="row">
@@ -96,21 +104,23 @@
                         <li class="list-item col-md-12" ng-repeat="respuesta in respuestas">
                             <ul class="row">
                                 <div class="col-md-5 list-data">
-                                    <li id="list-item-fecha" class="col-md-4">{{respuesta.FechaSanc.dia}}/{{respuesta.FechaSanc.mes}}/{{respuesta.FechaSanc.anio}}</li>
-                                    <li id="list-item-nro-norma" class="col-md-4">{{respuesta.AntesNorma}}</li>
-                                    <li id="list-item-codigo" class="col-md-4">{{respuesta.NumDJA.text}}</li>
+                                    <div class="row">
+                                        <li id="list-item-fecha" class="col-md-4">{{respuesta.FechaSanc.dia}}/{{respuesta.FechaSanc.mes}}/{{respuesta.FechaSanc.anio}}</li>
+                                        <li id="list-item-nro-norma" class="col-md-4">{{respuesta.AntesNorma}}</li>
+                                        <li id="list-item-codigo" class="col-md-4">{{respuesta.NumDJA.text}}</li>
+                                    </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-11">
+                                        <li id="list-item-descripcion" class="col-xs-11">
                                             <h2 class="heading-fourth">
                                                 <a href="{{respuesta.NumDJA.link}}" title="Descripción" class="text-bold">{{respuesta.Titulo}}</a>
                                             </h2>
                                             <p class="text-p-small">Quisque iaculis orci vitae scelerisque feugiat. Aliquam sollicitudin leo purus, at efficitur nulla lobortis eget. </p>
                                         </li>
-                                        <li class="col-md-1">
-                                            <i class="fa fa-check consolidada"></i>
-                                            <i class="fa fa-clock-o no-consolidada"></i>
+                                        <li class="col-xs-1">
+                                            <i class="fa fa-check consolidada"data-toggle="tooltip" data-placement="left" title="Norma consolidada en el Digesto Jurídico Argentino"></i>
+                                            <!--i class="fa fa-clock-o no-consolidada"></i-->
                                         </li>
                                     </div><!--/.row-->
                                 </div><!--/.col-md-7-->

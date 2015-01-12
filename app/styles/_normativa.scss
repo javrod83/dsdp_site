@@ -34,18 +34,17 @@
 			li
 			{
 				font-size: $f-font-size-small;
-				padding: 0 5px !important;
-
-				.consolidada
-				{
-					color: $color-green;
-				}
-				.no-consolidada
-				{
-					color: $color-light-orange;
-				}
+				padding-bottom: 5px;
 			}
 		}
+	}
+	.consolidada
+	{
+		color: $color-green;
+	}
+	.no-consolidada
+	{
+		color: $color-light-orange;
 	}
 }
 #normativa-search
