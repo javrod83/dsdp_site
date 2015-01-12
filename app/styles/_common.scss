@@ -195,6 +195,14 @@ ul
 		margin: 0;
 	}
 }
+.heading-aside
+{
+	border-bottom: 1px solid $color-light-gray;
+	color: $color-main-gray !important;
+	line-height: 1.2;
+	margin: 30px 0;
+	padding: 0 0 10px 0;
+}
 .heading-primary
 {
 	font-size: $f-font-size-xxlarge !important;
@@ -237,6 +245,10 @@ ul
 		font-size: $f-font-size-base;
 		line-height: 1.75;
 	}
+}
+.main-aside
+{
+	margin: 30px 0 0 0;
 }
 .navbar
 {
@@ -395,4 +407,12 @@ ul
 	font-family: $f-font-family-secondary;
 	font-size: $f-font-size-base !important;
 	margin: 20px 0;
+}
+.text-p-small
+{
+	color: $color-gray;
+	font-family: $f-font-family-secondary;
+	font-size: $f-font-size-small !important;
+	line-height: 1.2;
+	margin: 5px 0;
 }

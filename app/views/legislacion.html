@@ -1,1 +1,31 @@
-<p>This is the legislacion view.</p>
+<div class="container-fluid heading">
+    <div class="container">
+        <h1 class="heading-primary wow fadeInUp">Nombre de la Ley buscada</h1>
+    </div>
+</div><!--/.heading-->
+<section id="legislacion" class="container wow fadeIn">
+    <div class="row">
+        <form role="form" id="normativa-search" class="col-md-9 col-xs-12 form-inline form-lg">
+            <div class="form-group col-md-12 col-xs-12">
+                <div class="col-md-10 col-xs-9">
+                    <div data-autocomplete type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" ng-model="textoBusqueda"></div>
+                </div>
+                <button class="btn btn-warning btn-lg pull-right col-md-2 col-xs-3" type="submit" value="Buscar" ng-click="buscar()" >Buscar</button>
+            </div>
+        </form><!--/#normativa-search-->
+    </div>
+    <div class="row">
+        <section id="legislacion-main">
+            <div class="col-md-9 col-xs-12">
+                <section id="legislacion-view">
+                   
+                </section><!--/#legislacion-view-->
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <aside id="legislacion-related" class="main-aside">
+                    <h3 class="heading-third heading-aside text-bold">Más normas</h3>
+                </aside>
+            </div>
+        </section><!--/#legislacion-main-->
+    </div><!--/.row-->
+</section><!--/#legislacion-->

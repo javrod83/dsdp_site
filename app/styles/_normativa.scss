@@ -9,19 +9,17 @@
 
 #normativa-filters
 {
-	margin: 30px 0 0 0;
-
 	form
 	{
 		margin: 0;
 
-		legend
+		legend.heading-aside
 		{
-			border-bottom: 1px solid $color-main-gray;
+			border-bottom: 1px solid $color-light-gray;
 			color: $color-main-gray !important;
 			line-height: 1.2;
 			margin: 30px 0;
-			padding: 0 0 18px 0;
+			padding: 0 0 10px 0;
 		}
 	}
 }
@@ -29,12 +27,23 @@
 {
 	.list-group
 	{
+		margin-bottom: 12px;
+
 		.list-data
 		{
 			li
 			{
 				font-size: $f-font-size-small;
 				padding: 0 5px !important;
+
+				.consolidada
+				{
+					color: $color-green;
+				}
+				.no-consolidada
+				{
+					color: $color-light-orange;
+				}
 			}
 		}
 	}

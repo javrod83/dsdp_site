@@ -8,7 +8,7 @@
         <form role="form" id="normativa-search" class="col-md-9 col-xs-12 form-inline form-lg">
             <div class="form-group col-md-12 col-xs-12">
                 <div class="col-md-10 col-xs-9">
-                    <div data-autocomplete type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" ng-model="textoBusqueda"  ></div>
+                    <div data-autocomplete type="text" class="form-control" id="normativa-input-search" placeholder="Escriba aquí su búsqueda" ng-model="textoBusqueda"></div>
                 </div>
                 <button class="btn btn-warning btn-lg pull-right col-md-2 col-xs-3" type="submit" value="Buscar" ng-click="buscar()" >Buscar</button>
             </div>
@@ -22,10 +22,10 @@
                 </div>
             </div>
             <div class="col-md-3 col-xs-12 pull-right">
-                <aside id="normativa-filters">
+                <aside id="normativa-filters" class="main-aside">
                     <form role="form" id="normativa-filters" class="form-base">
                         <fieldset>
-                            <legend class="heading-third text-bold">Filtrar resultados</legend>
+                            <legend class="heading-third heading-aside text-bold">Filtrar resultados</legend>
                             <section id="normativa-filters-tags" class="filters">
                                 <button class="tag filters-tags" ng-repeat="filter in activeFilters">{{filter.name}} <i class="fa fa-remove" ng-click="deleteFilter('{{filter.value}}')"></i></button>
                                 <a href="#" title="Mostrar todos" ng-show="activeFilters.length > 0 " class="show-all">mostrar todos (+{{activeFilters.length}})</a>
@@ -38,15 +38,15 @@
                                             <option value="NONE" selected disabled>Todas </option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-12 col-xs-6">
+                                    <!--div class="form-group col-md-12 col-xs-6">
                                         <label for="filters-tema" class="heading-fourth">Tema</label>
                                          <select ng-model="temaActual" ng-options="tema.nombre  for tema in temas" class="form-control"  ng-change="addTopicFilter()" >
                                               <option value="NONE" selected disabled>Todos </option>
                                          </select>
-                                    </div>
+                                    </div-->
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-md-12 col-sm-6">
+                                    <!--div class="form-group col-md-12 col-sm-6">
                                         <h4 class="heading-fourth">Estado</h4>
                                         <label class="heading-fifth">
                                             <input type="checkbox"> Consolidadas en DJA
@@ -54,7 +54,7 @@
                                         <label class="heading-fifth">
                                             <input type="checkbox"> En proceso de consolidación
                                         </label>
-                                    </div>
+                                    </div-->
                                     <div class="form-group col-md-12 col-sm-6">
                                         <label for="filters-fecha-sancion" class="heading-fourth">Fecha de sanción</label>
                                         <div class="row">
@@ -102,10 +102,15 @@
                                 </div>
                                 <div class="col-md-7">
                                     <div class="row">
-                                        <li id="list-item-descripcion" class="col-md-12">
+                                        <li id="list-item-descripcion" class="col-md-11">
                                             <h2 class="heading-fourth">
                                                 <a href="{{respuesta.NumDJA.link}}" title="Descripción" class="text-bold">{{respuesta.Titulo}}</a>
                                             </h2>
+                                            <p class="text-p-small">Quisque iaculis orci vitae scelerisque feugiat. Aliquam sollicitudin leo purus, at efficitur nulla lobortis eget. </p>
+                                        </li>
+                                        <li class="col-md-1">
+                                            <i class="fa fa-check consolidada"></i>
+                                            <i class="fa fa-clock-o no-consolidada"></i>
                                         </li>
                                     </div><!--/.row-->
                                 </div><!--/.col-md-7-->
