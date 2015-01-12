@@ -32,7 +32,7 @@
                             </section><!--/#normativa-filters-tags-->
                             <div>
                                 <div class="row">
-                                    <div class="form-group col-md-12 col-xs-6">
+                                    <div class="form-group col-md-12 col-sm-6">
                                         <label for="filters-categorias" class="heading-fourth">Categoría</label>
                                         <select ng-model="currentCategory" ng-options="category.name  for category in categories" class="form-control"  ng-change="addCategoryFilter()">
                                             <option value="NONE" selected disabled>Todas </option>
@@ -60,12 +60,12 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                <select ng-model="currentSinceDate" ng-options="date  for date in dates" class="form-control" ng-change="checkDateFilter()" >
-                                                     <option value="" selected >Desde </option>
+                                                    <option value="" selected>Desde</option>
                                                 </select>
                                             </div>
                                             <div class="col-sm-6">
                                                 <select ng-model="currentUntilDate" ng-options="date  for date in dates" class="form-control"  ng-change="checkDateFilter()">
-                                                    <option value="" selected  >Hasta</option>
+                                                    <option value="" selected>Hasta</option>
                                                 </select>
                                             </div>
                                         </div>
