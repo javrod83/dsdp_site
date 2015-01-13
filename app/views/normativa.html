@@ -16,11 +16,6 @@
     </div>
     <div class="row">
         <section id="normativa-main">
-            <div class="col-md-9 nav-path-header" ng-show="showResult">
-                <div class="col-xs-12">
-                    <p class="text-p"><strong>{{resultadosTotales}}</strong> resultados para <strong>"{{textoBusqueda}}"</strong></p>
-                </div>
-            </div>
             <div class="col-md-3 col-xs-12 pull-right">
                 <aside id="normativa-filters" class="main-aside">
                     <form role="form" id="normativa-filters" class="form-base">
@@ -77,6 +72,11 @@
                 </aside>
             </div>
             <div class="col-md-9 col-xs-12 pull-left">
+                <div class="nav-path-header" ng-show="showResult">
+                    <div class="col-xs-12">
+                        <p class="text-p"><strong>{{resultadosTotales}}</strong> resultados para <strong>"{{textoBusqueda}}"</strong></p>
+                    </div>
+                </div>
                 <section id="normativa-main-list">
                     <ul class="list-group">
                         <li id="list-header" class="col-md-12 hidden-sm hidden-xs">
