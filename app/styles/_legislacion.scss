@@ -2,4 +2,22 @@
 {
 	border-top: 1px solid $color-main-gray;
 	border-bottom: 1px solid $color-main-gray;
+
+	#icons-share
+	{
+		margin: 8px 0 0 0;
+
+		.icon
+		{
+			color: $color-main-gray;
+			font-size: $f-font-size-medium;
+			padding: 10px;
+		}
+	}
+	.heading-fifth
+	{
+		color: $color-main-gray;
+		display: inline-block;
+	}
+	
 }
