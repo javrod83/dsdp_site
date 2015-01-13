@@ -1,12 +1,41 @@
+#legislacion-related
+{
+	h3.heading-third
+	{
+		margin-top: 15px;
+	}
+	.list-group
+	{
+		margin-top: 15px;
+
+		.list-item
+		{
+			p
+			{
+				margin-bottom: 5px;
+			}
+		}
+	}
+}
 #legislacion-view-header
 {
 	border-top: 1px solid $color-main-gray;
 	border-bottom: 1px solid $color-main-gray;
+	margin-top: 15px;
 
+	#icons-download
+	{
+		margin-top: 8px;
+
+		.heading-fifth
+		{
+			color: $color-main-gray;
+			display: inline-block;
+			padding-right: 10px !important;
+		}
+	}
 	#icons-share
 	{
-		margin: 8px 0 0 0;
-
 		.icon
 		{
 			color: $color-main-gray;
@@ -14,10 +43,4 @@
 			padding: 10px;
 		}
 	}
-	.heading-fifth
-	{
-		color: $color-main-gray;
-		display: inline-block;
-	}
-	
 }
